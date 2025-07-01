@@ -1,0 +1,113 @@
+<div id="wrapper">
+    <div class="leftarea">
+
+        <div *ngIf="QuestionType == 'LetterTracing'" id="LetterTracing">
+            <app-letter-tracking [CurrentQyt]="CurrentQuestion"></app-letter-tracking>
+        </div>
+
+        <div *ngIf="QuestionType == 'LetterMatch'" id="LetterMatch">
+            <app-letter-match [CurrentQyt]="CurrentQuestion"></app-letter-match>
+        </div>
+
+        <div *ngIf="QuestionType == 'BlendWords'" id="BlendWords">
+            <app-blend-words [CurrentQuestion]="CurrentQuestion"></app-blend-words>
+        </div>
+
+
+        <div *ngIf="QuestionType == 'ListenWords'" id="ListenWords">
+            <app-listen-words [CurrentQuestion]="CurrentQuestion"></app-listen-words>
+        </div>
+
+        <div *ngIf="QuestionType == 'MCQ'" id="MCQ">
+            <app-mcq [CurrentQuestion]="CurrentQuestion"></app-mcq>
+        </div>
+
+        <div *ngIf="QuestionType == 'VideosType'" id="VideosType">
+            <app-video-type [CurrentQuestion]="CurrentQuestion"></app-video-type>
+        </div>
+
+    </div>
+
+
+    <div class="rightarea">
+        <div class="reportCard">
+            <div class="profileHeader">
+                <div class="profileimage">
+                    <img [src]="'https://www.relearntoday.com/assets/images/students_img/' + userData?.ID + '.jpg'"
+                        alt="Profile" (error)="setDefaultImage($event)" >
+
+                </div>
+                <div class="name">
+                    {{userData.UserName}}
+                </div>
+                <div class="studentid">
+                    Student ID : {{userData.ID}}
+                </div>
+
+                <div class="studentid">
+                    <span>Class {{userData.Class}}</span>
+                    <span>Week {{currentWeek}} </span>
+                    <span>Day {{currentDay}}</span>
+                </div>
+
+            </div>
+
+            <div class="reportarea">
+                <div class="progess">
+                    <span>Today's Progress Report:
+                        {{this.CurrentReport.today_report.correct}}/{{this.CurrentReport.today_report.total}}</span>
+                    <div class="progessline">
+                        <section class="example-section">
+                            <mat-progress-bar class="example-margin"
+                                [value]="CurrentReport.today_report.correct_percent">
+                            </mat-progress-bar>
+                        </section>
+                    </div>
+                    <div class="progessCricelarea">
+                        <div class="rightans">
+                            <circle-progress [percent]="CurrentReport.today_report.correct_percent" [radius]="50"
+                                [outerStrokeWidth]="8" [innerStrokeWidth]="4" [outerStrokeColor]="'green'"
+                                [innerStrokeColor]="'lightgray'" [animation]="true" [animationDuration]="1000">
+                            </circle-progress>
+                        </div>
+                        <div class="worngans">
+                            <circle-progress [percent]="CurrentReport.today_report.incorrect_percent" [radius]="50"
+                                [outerStrokeWidth]="8" [innerStrokeWidth]="4" [outerStrokeColor]="'red'"
+                                [innerStrokeColor]="'lightgray'" [animation]="true" [animationDuration]="1000">
+                            </circle-progress>
+                        </div>
+                    </div>
+                </div>
+                <div class="progess">
+                    <span>{{CurrentQuestion.topics}} Progress Report:
+                        {{this.CurrentReport.topic_wise_report.correct_percent}}/{{this.CurrentReport.topic_wise_report.correct}}
+                    </span>
+                    <div class="progessline">
+                        <section class="example-section">
+                            <mat-progress-bar class="example-margin"
+                                [value]="CurrentReport.topic_wise_report.correct_percent">
+                            </mat-progress-bar>
+                        </section>
+                    </div>
+                    <div class="progessCricelarea">
+                        <div class="rightans">
+                            <circle-progress [percent]="CurrentReport.topic_wise_report.correct_percent" [radius]="50"
+                                [outerStrokeWidth]="8" [innerStrokeWidth]="4" [outerStrokeColor]="'green'"
+                                [innerStrokeColor]="'lightgray'" [animation]="true" [animationDuration]="1000">
+                            </circle-progress>
+                        </div>
+                        <div class="worngans">
+                            <circle-progress [percent]="CurrentReport.topic_wise_report.incorrect_percent" [radius]="50"
+                                [outerStrokeWidth]="8" [innerStrokeWidth]="4" [outerStrokeColor]="'red'"
+                                [innerStrokeColor]="'lightgray'" [animation]="true" [animationDuration]="1000">
+                            </circle-progress>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+</div>

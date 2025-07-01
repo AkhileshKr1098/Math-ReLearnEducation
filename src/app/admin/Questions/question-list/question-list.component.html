@@ -1,0 +1,83 @@
+<div class="registration_box">
+    <div class="registration_table_area">
+        <div class="header_title">
+            <div class="add_btn">
+                <button type="button" class="btn btn-danger" style="height: 60px;" (click)="addNew()">+ Add New</button>
+            </div>
+
+        
+<select class="form-select" [(ngModel)]="filters.class" (ngModelChange)="getQuestions()">
+  <option value="">Select Class</option>
+  <option *ngFor="let item of Classes" [value]="item.class">{{ item.class }}</option>
+</select>
+
+<select class="form-select" [(ngModel)]="filters.week" (ngModelChange)="getQuestions()">
+  <option value="">Select Week</option>
+  <option *ngFor="let item of weeks" [value]="item.week_num">{{ item.week_num }}</option>
+</select>
+
+<select class="form-select" [(ngModel)]="filters.day" (ngModelChange)="getQuestions()">
+  <option value="">Select Day</option>
+  <option *ngFor="let item of days" [value]="item.day">{{ item.day }}</option>
+</select>
+
+<select class="form-select" [(ngModel)]="filters.sections" (ngModelChange)="getQuestions()">
+  <option value="">Select Sections</option>
+  <option *ngFor="let item of sections" [value]="item.sections_name">{{ item.sections_name }}</option>
+</select>
+
+<select class="form-select" [(ngModel)]="filters.topics" (ngModelChange)="getQuestions()">
+  <option value="">Select Topics</option>
+  <option *ngFor="let item of topics" [value]="item.topics">{{ item.topics }}</option>
+</select>
+
+<select class="form-select" [(ngModel)]="filters.sub_topics" (ngModelChange)="getQuestions()">
+  <option value="">Select Sub Topics</option>
+  <option *ngFor="let item of subTopics" [value]="item.sub_topics">{{ item.sub_topics }}</option>
+</select>
+
+<select class="form-select" [(ngModel)]="filters.unit" (ngModelChange)="getQuestions()">
+  <option value="">Select Unit</option>
+  <option *ngFor="let item of units" [value]="item.unit">{{ item.unit }}</option>
+</select>
+
+<select class="form-select" [(ngModel)]="filters.question_type" (ngModelChange)="getQuestions()">
+  <option value="">Select Type</option>
+  <option value="MCQ">MCQ</option>
+  <option value="LetterTracing">Letter Tracing</option>
+  <option value="LetterMatch">Letter Match</option>
+  <option value="BlendWords">Blend Words</option>
+  <option value="ListenWords">Listen Words</option>
+</select>
+
+
+
+        </div>
+
+        <table class="table table-striped" style="text-align: center;">
+            <thead>
+                <tr>
+                    <th scope="col" style="width: 60px ;">S.N.</th>
+                    <th scope="col">Question </th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of FilterQuestion; let i = index">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{item.Question}}</td>
+                    <td>
+                        <button mat-icon-button (click)="onEdit(item)">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="delete_application(item)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+</div>

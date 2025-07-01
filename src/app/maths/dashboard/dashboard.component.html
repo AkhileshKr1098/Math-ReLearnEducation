@@ -1,0 +1,80 @@
+<div id="wrapper">
+  <div class="side">
+    <div class="header">
+      <span> My Course</span>
+    </div>
+    <div id="scrollarea">
+      <mat-accordion *ngFor="let weeks of weeksList" class="example-headers-align">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header (click)="onGetSections(weeks.week_num)">
+            <mat-panel-title>
+              Week {{weeks.week_num}}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <mat-accordion *ngFor="let sec of SectionsList" class="example-headers-align">
+            <mat-expansion-panel [hideToggle]="true">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  {{sec.sections}}
+                  <!-- <span style="font-weight: normal;">{{ allTopics }}</span> -->
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+            </mat-expansion-panel>
+          </mat-accordion>
+
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+
+  </div>
+  <div class="main">
+    <div class="uppar_section">
+      <div class="profile_section">
+        <div class="profile_box">
+          <div class="profileimg">
+            <img [src]="'https://www.relearntoday.com/assets/images/students_img/' + userData?.ID + '.jpg'"
+              alt="Profile" (error)="setDefaultImage($event)">
+          </div>
+          <div class="profiledeatils">
+            <div class="row name">{{userData.UserName}}</div>
+            <div class="row">{{userData.DOB}}</div>
+            <div class="row">{{userData.Class }}</div>
+            <div class="row">{{userData.School}}</div>
+            <div class="row">{{userData.Country}}</div>
+          </div>
+
+        </div>
+      </div>
+      <div class="point_area">
+        <div class="point_box">
+          <div class="point_img">
+            <img src="assets/icon/star.png" alt="">
+          </div>
+          <div class="point_title">
+            <div class="relearnpinttitile">
+              <h1>ReLearn Points</h1>
+
+            </div>
+            <div class="pointnumber">{{'0'}}</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="lower_section">
+      <div class="timeline">
+        <div *ngFor="let day of days1; let i = index" (click)="onTopics(day, $event)" class="day-container"
+          [ngClass]="{ activeClass: day.name == currentDay }">
+          <img [src]="day.url" alt="" (click)="onTopics(day, $event)">
+        </div>
+      </div>
+
+      <div class="timeline">
+        <div *ngFor="let day of days2; let i = index" (click)="onTopics(day, $event)" class="day-container2"
+          [ngClass]="{ activeClass: day.name == currentDay }">
+          <img [src]="day.url" alt="" (click)="onTopics(day, $event)">
+        </div>
+      </div>
+    </div>
+  </div>
