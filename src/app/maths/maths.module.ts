@@ -24,7 +24,7 @@ import { MatListModule } from '@angular/material/list';
 import { NgChartsModule } from 'ng2-charts';
 
 import { NgCircleProgressModule } from 'ng-circle-progress';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatInputModule } from '@angular/material/input';
@@ -32,45 +32,48 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
 import { TopicsComponent } from './topics/topics.component';
 import { QuestionsComponent } from './questions/questions.component';
+import { PaintCloneComponent } from './questions/paint-clone/paint-clone.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
     HomeComponent,
     TopicsComponent,
-    QuestionsComponent
+    QuestionsComponent,
+    PaintCloneComponent
   ],
   imports: [
     CommonModule,
     MathsRoutingModule,
-     MatToolbarModule,
-        MatIconModule,
-        MatButtonModule,
-        MatBadgeModule,
-        MatMenuModule,
-        MatCardModule,
-        MatProgressBarModule,
-        MatButtonToggleModule,
-        MatDividerModule,
-        MatSelectModule,
-        MatListModule,
-        MatSidenavModule,
-        NgChartsModule,
-        NgCircleProgressModule.forRoot({
-          radius: 100,
-          outerStrokeWidth: 15,
-          innerStrokeWidth: 8,
-          outerStrokeColor: "#78C000",
-          innerStrokeColor: "#C7E596",
-          animationDuration: 300,
-        }),
-        ReactiveFormsModule,
-        MatDialogModule,
-        MatExpansionModule,
-        MatInputModule,
-        MatFormFieldModule,
-        MatTableModule
-    
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatBadgeModule,
+    MatMenuModule,
+    MatCardModule,
+    MatProgressBarModule,
+    MatButtonToggleModule,
+    MatDividerModule,
+    MatSelectModule,
+    MatListModule,
+    MatSidenavModule,
+    NgChartsModule,
+    NgCircleProgressModule.forRoot({
+      radius: 100,
+      outerStrokeWidth: 15,
+      innerStrokeWidth: 8,
+      outerStrokeColor: "#78C000",
+      innerStrokeColor: "#C7E596",
+      animationDuration: 300,
+    }),
+    ReactiveFormsModule,
+    MatDialogModule,
+    MatExpansionModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatTableModule,
+    FormsModule
+
 
   ]
 })

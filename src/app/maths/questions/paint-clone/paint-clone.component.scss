@@ -1,0 +1,40 @@
+.toolbar {
+  background: #333;
+  color: white;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.toolbar-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toolbar-controls {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+button {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.canvas-container {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 100px); /* Toolbar height adjustment */
+}
+
+canvas {
+  border: 1px solid #000;
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: crosshair;
+}

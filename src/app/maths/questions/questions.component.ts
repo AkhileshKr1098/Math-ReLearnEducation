@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { AnsReportRes, QuestionData, QuestionDataRes } from 'src/app/interface/Question.interface';
 import { SharedService } from 'src/app/shared.service';
 import { CurrentReportRes } from 'src/app/interface/report.interafce';
 import { CRUDService } from 'src/app/crud.service';
 import { MatDialog } from '@angular/material/dialog';
+import { PaintCloneComponent } from './paint-clone/paint-clone.component';
 
 @Component({
   selector: 'app-questions',
@@ -23,6 +24,9 @@ export class QuestionsComponent {
   currentWeek: any = 0;
   currentDay: any = 0;
   i = 0;
+
+   @ViewChild('paintRef') paintComponent!: PaintCloneComponent;
+
 
   constructor(
     private _crud: CRUDService,
@@ -156,5 +160,11 @@ export class QuestionsComponent {
 
   toggleMax() {
   this.IsMaxMize = !this.IsMaxMize;
+   setTimeout(() => {
+      this.paintComponent.resizeCanvas();
+    }, 0);
 }
+
+
+ 
 }
