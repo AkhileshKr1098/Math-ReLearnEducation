@@ -33,6 +33,12 @@ import { MatTableModule } from '@angular/material/table';
 import { TopicsComponent } from './topics/topics.component';
 import { QuestionsComponent } from './questions/questions.component';
 import { PaintCloneComponent } from './questions/paint-clone/paint-clone.component';
+import { BlendWordsComponent } from './QuestionType/blend-words/blend-words.component';
+import { LetterMatchComponent } from './QuestionType/letter-match/letter-match.component';
+import { LetterTrackingComponent } from './QuestionType/letter-tracking/letter-tracking.component';
+import { ListenWordsComponent } from './QuestionType/listen-words/listen-words.component';
+import { MCQComponent } from './QuestionType/mcq/mcq.component';
+import { VideoTypeComponent } from './QuestionType/video-type/video-type.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +46,14 @@ import { PaintCloneComponent } from './questions/paint-clone/paint-clone.compone
     HomeComponent,
     TopicsComponent,
     QuestionsComponent,
-    PaintCloneComponent
+    PaintCloneComponent,
+    BlendWordsComponent,
+    LetterMatchComponent,
+    LetterTrackingComponent,
+    ListenWordsComponent,
+    MCQComponent,
+    VideoTypeComponent
+
   ],
   imports: [
     CommonModule,

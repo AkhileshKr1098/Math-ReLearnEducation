@@ -1,0 +1,58 @@
+<div id="wrapper">
+    <div class="topicsarea">
+        <button type="button">Class {{userData.Class}}/Week {{currentWeek}}/day
+            {{currentDay}}</button>
+        <span>{{CurrentQuestion.topics}}</span>
+        <span></span>
+    </div>
+    <div class="qArea">
+        <div class="letter-selector">
+            <span>🎨 {{ CurrentQuestion.Question}} 🖍️</span>
+        </div>
+
+        <div class="letter-selector2">
+            <span> {{ CurrentQuestion.instruction}}</span>
+        </div>
+    </div>
+    <div class="qarea">
+
+        <div class="question-content">
+
+
+            <div class="video-container" *ngIf="CurrentQuestion.listen_rec">
+                <video #videoElement [src]="base_url + CurrentQuestion.listen_rec" (timeupdate)="onTimeUpdate()"
+                    (loadedmetadata)="onLoadedMetadata()" class="video-player" controlsList="nodownload">
+                    Your browser does not support the video tag.
+                </video>
+
+                <div class="controls">
+                    <button (click)="togglePlay()" title="Play/Pause">
+                        <span *ngIf="!isPlaying">▶️</span>
+                        <span *ngIf="isPlaying">⏸️</span>
+                    </button>
+
+                    <input type="range" [value]="progress" (input)="seekVideo($event)" />
+
+                    <button (click)="toggleMute()" title="Mute/Unmute">🔊</button>
+
+                    <input type="range" min="0" max="1" step="0.1" [value]="volume" (input)="changeVolume($event)" />
+
+                    <button (click)="toggleFullScreen(videoElement)" title="Fullscreen">⛶</button>
+                </div>
+            </div>
+
+
+
+
+            <iframe *ngIf="safeUrl" [src]="safeUrl" frameborder="0" class="iframe-player">
+            </iframe>
+
+        </div>
+
+
+    </div>
+
+    <div class="button-container">
+        <button class="save-btn" (click)="CheckCorrect()">✅ Next</button>
+    </div>
+</div>
