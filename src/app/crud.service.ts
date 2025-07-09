@@ -10,8 +10,8 @@ import { CurrentReportRes } from './interface/report.interafce';
 })
 export class CRUDService {
   // base_url: string = 'http://localhost/relearn/' 
-  base_url: string = 'https://ud.mausamstudio.com/relearn_api/'
-  img_base_url = new BehaviorSubject<string>('https://ud.mausamstudio.com/relearn_api/')
+  base_url: string = 'https://ud.mausamstudio.com/math_relern_api/'
+  img_base_url = new BehaviorSubject<string>('https://ud.mausamstudio.com/math_relern_api/')
 
   constructor(
     private _http: HttpClient
@@ -205,11 +205,11 @@ export class CRUDService {
     return this._http.get<QuestionData[]>(`${this.base_url}get_question.php`, { params });
   }
 
-getQuestionFilter(cls: string, week: number, day: number, std_id: string, topics: string, limit: string): Observable<any> {
-  return this._http.get<any>(
-    `${this.base_url}get_question_filter.php?class=${cls}&week=${week}&day=${day}&std_id=${std_id}&topics=${topics}&limit=${limit}`
-  );
-}
+  getQuestionFilter(cls: string, week: number, day: number, std_id: string, topics: string, limit: string): Observable<any> {
+    return this._http.get<any>(
+      `${this.base_url}get_question_filter.php?class=${cls}&week=${week}&day=${day}&std_id=${std_id}&topics=${topics}&limit=${limit}`
+    );
+  }
 
 
   addQuestion(data: any): Observable<any> {

@@ -10,7 +10,7 @@ export class SharedService {
     AbacusMaster: "0.00",
     AsignDate: "2025-06-12",
     AsignDay: "1",
-    CSDate: "2025-06-22",
+    CSDate: "2025-06-23",
     ContactNo: "6202572787",
     Course: "FT with Basics & MT",
     Currency: "",
@@ -48,8 +48,8 @@ export class SharedService {
     this.WeekCalc()
   }
 
-  base_url = new BehaviorSubject<string>('https://ud.mausamstudio.com/relearn_api/')
-  base_url_ans_img = new BehaviorSubject<string>('https://ud.mausamstudio.com/relearn_api/uploads/ans_img/')
+  base_url = new BehaviorSubject<string>('https://ud.mausamstudio.com/math_relern_api/')
+  base_url_ans_img = new BehaviorSubject<string>('https://ud.mausamstudio.com/math_relern_api/uploads/ans_img/')
   base_url_audio = new BehaviorSubject<string>('')
   base_url_icon = new BehaviorSubject<string>('')
   base_url_answer = new BehaviorSubject<string>('')
