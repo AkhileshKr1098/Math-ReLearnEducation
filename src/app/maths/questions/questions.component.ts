@@ -25,7 +25,7 @@ export class QuestionsComponent {
   currentDay: any = 0;
   i = 0;
 
-   @ViewChild('paintRef') paintComponent!: PaintCloneComponent;
+  @ViewChild('paintRef') paintComponent!: PaintCloneComponent;
 
 
   constructor(
@@ -49,9 +49,8 @@ export class QuestionsComponent {
         .subscribe((res: QuestionDataRes) => {
           if (Array.isArray(res.data)) {
             this.AllQuestion = res.data;
-            console.log(this.AllQuestion);
-
-            this.shared.AllQuestionList.next(res);
+            console.log(this.AllQuestion, 'all question');
+            this.shared.AllQuestionList.next(res.data);
 
             if (this.AllQuestion.length) {
               this.i = 0;
@@ -159,12 +158,12 @@ export class QuestionsComponent {
 
 
   toggleMax() {
-  this.IsMaxMize = !this.IsMaxMize;
-   setTimeout(() => {
+    this.IsMaxMize = !this.IsMaxMize;
+    setTimeout(() => {
       this.paintComponent.resizeCanvas();
     }, 0);
-}
+  }
 
 
- 
+
 }

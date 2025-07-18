@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, AfterViewInit, Input } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit, Input, SimpleChanges } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { CRUDService } from 'src/app/crud.service';
 import { QuestionData } from 'src/app/interface/Question.interface';
@@ -17,7 +17,7 @@ import { OppsBoxComponent } from 'src/app/english/opps-box/opps-box.component';
 export class LetterTrackingComponent implements AfterViewInit {
   @Input() CurrentQyt!: QuestionData;
   @ViewChild('letterCanvas', { static: false }) canvasRef!: ElementRef;
-  currentCharacter = new BehaviorSubject<string>('A');
+  currentCharacter = new BehaviorSubject<string>('');
   ctx!: CanvasRenderingContext2D;
   characters: string[] = [];
   colors: string[] = ['#FF5733', '#33FF57', '#3357FF', '#F0FF33', '#9B33FF', '#FF33B5', '#33FFF7'];
@@ -89,8 +89,24 @@ export class LetterTrackingComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.startPainting();
     this.currentCharacter.next(String(this.CurrentQyt.OptionA))
+    setTimeout(()=>{
+this.Setnew()
+    },1000)
   }
 
+   ngOnChanges(changes: SimpleChanges): void {
+    if (changes['CurrentQyt'] && !changes['CurrentQyt'].firstChange) {
+      console.log('CurrentQyt changed:', changes['CurrentQyt'].currentValue);
+      this.Setnew()
+          this.startPainting();
+
+    }
+  }
+
+  initializeQuestion() {
+    this.startPainting();
+    this.currentCharacter.next(String(this.CurrentQyt.OptionA));
+  }
   populateCharacters() {
     for (let i = 65; i <= 90; i++) this.characters.push(String.fromCharCode(i));
     for (let i = 97; i <= 122; i++) this.characters.push(String.fromCharCode(i));
@@ -102,6 +118,15 @@ export class LetterTrackingComponent implements AfterViewInit {
     this.paintedArea.clear();
     this.drawCharacter();
     this.isSaveVisible = false;
+  }
+
+  Setnew(){
+    console.log(this.currentCharacter);
+    
+      this.currentCharacter.next(this.CurrentQyt.OptionA)
+    console.log(this.currentCharacter);
+    this.drawCharacter()
+
   }
 
 
@@ -254,8 +279,9 @@ export class LetterTrackingComponent implements AfterViewInit {
 
   downloadTracingPDF() {
     this._shared.AllQuestionList.subscribe((res) => {
+      console.log(res, 'all question');
 
-      res.forEach((question: any) => {
+      res.data.forEach((question: any) => {
         if (question.question_type === 'LetterTracing' && question.OptionA) {
           this.LettersList.push(question.OptionA);
         }
@@ -263,6 +289,7 @@ export class LetterTrackingComponent implements AfterViewInit {
 
       console.log(this.LettersList);
     });
+    console.log(this.LettersList, 'lettertracking');
     // const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
     this.tracingService.generateLetterTracingPDF(this.LettersList);
     // this.tracingService.generateLargeTracingPDF(['A', 'B', 'C']);
