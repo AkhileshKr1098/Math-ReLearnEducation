@@ -17,29 +17,6 @@
 
     <div class="question_area">
         <div class="question-content">
-            <div class="left">
-
-                <iframe *ngIf="CurrentQuestion.video_url_youtube" [src]="getVerify(CurrentQuestion.video_url_youtube)"
-                    frameborder="0" class="iframe-player" width="100%" allowfullscreen>
-                </iframe>
-
-
-                <div class="video-container" *ngIf="CurrentQuestion.video_url_local">
-                    <video #videoElement [src]="base_url + CurrentQuestion.video_url_local"
-                        (timeupdate)="onTimeUpdate()" (loadedmetadata)="onLoadedMetadata()" class="video-player"
-                        controlsList="nodownload">
-                    </video>
-
-                    <div class="controls">
-                        <button (click)="togglePlay()" title="Play/Pause">
-                            <span *ngIf="!isPlaying">▶️</span>
-                            <span *ngIf="isPlaying">⏸️</span>
-                        </button>
-                        <button (click)="toggleFullScreen(videoElement)" title="Fullscreen">⛶</button>
-                    </div>
-                </div>
-
-            </div>
             <div class="right">
                 <div class="imgarea">
                     <img [src]="base_url+CurrentQuestion.question_Img" alt="Question Image" />

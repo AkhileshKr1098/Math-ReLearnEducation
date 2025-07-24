@@ -72,13 +72,8 @@
   .question-content {
     width: 100%;
 
-    .left {
-      width: 200px;
-      float: left;
-    }
-
     .right {
-      width: calc(100% - 200px);
+      width: calc(100% - 0px);
       float: right;
     }
   }
