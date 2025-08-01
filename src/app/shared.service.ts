@@ -10,7 +10,7 @@ export class SharedService {
     AbacusMaster: "0.00",
     AsignDate: "2025-06-12",
     AsignDay: "1",
-    CSDate: "2025-07-15",
+    CSDate: "2025-07-17",
     ContactNo: "6202572787",
     Course: "FT with Basics & MT",
     Currency: "",
