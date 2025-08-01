@@ -1,18 +1,23 @@
 <div id="wrapper">
-<div class="toolbar">
-  <div class="toolbar-controls">
-    <label>Color:</label>
-    <input type="color" [(ngModel)]="selectedColor" />
+  <div class="toolbar">
+    <div class="toolbar-controls">
+      <label>Color:</label>
+      <input type="color" [(ngModel)]="selectedColor" />
 
-    <label>Brush Size:</label>
-    <input type="range" min="1" max="50" [(ngModel)]="brushSize" />
+      <label>Brush:</label>
+      <input style="width: 60px;" type="range" min="1" max="50" [(ngModel)]="brushSize" />
 
-    <button (click)="clearCanvas()">Clear</button>
+      <button (click)="clearCanvas()">Clear</button>
+
+      <button (click)="toggleEraser()" [ngClass]="{ 'active': isErasing }">
+        <span *ngIf="!isErasing">🖊️ Pen</span>
+        <span *ngIf="isErasing">🧽 Erase</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="canvas-container">
+    <canvas #paintCanvas [ngClass]="{ 'eraser-cursor': isErasing, 'pen-cursor': !isErasing }">
+    </canvas>
   </div>
 </div>
-
-<div class="canvas-container">
-  <canvas #paintCanvas></canvas>
-</div>
-</div>
-

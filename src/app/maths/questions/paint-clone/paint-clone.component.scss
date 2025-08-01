@@ -1,7 +1,5 @@
-#wrapper{
-  width: 100%;
+#wrapper {
   height: 100%;
-  border: 1px solid green;
 }
 
 .toolbar {
@@ -9,37 +7,46 @@
   color: white;
   padding: 10px;
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.toolbar-header {
-  display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
 .toolbar-controls {
   display: flex;
-  gap: 15px;
   align-items: center;
-  flex-wrap: wrap;
+  gap: 10px;
 }
 
-button {
-  padding: 5px 10px;
-  cursor: pointer;
+button.active {
+  background-color: #ccc;
+  color: #000;
 }
 
 .canvas-container {
-  position: relative;
   width: 100%;
-  height: calc(100% - 55px);
+  height: calc(100vh - 50px); // Adjust based on toolbar height
+  border: 1px solid lightgray;
 }
 
 canvas {
   width: 100%;
   height: 100%;
   display: block;
+}
+
+/* Cursor Styles */
+canvas.pen-cursor {
+  cursor: url('https://cdn-icons-png.flaticon.com/512/1828/1828919.png') 0 24, auto; // Pen icon
+}
+
+canvas.eraser-cursor {
+  cursor: url('https://cdn-icons-png.flaticon.com/512/686/686589.png') 4 28, auto; // Eraser icon
+}
+
+canvas.eraser-cursor {
+  cursor: grab;
+}
+
+canvas.pen-cursor {
   cursor: crosshair;
 }

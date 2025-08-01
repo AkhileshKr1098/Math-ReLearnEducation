@@ -12,6 +12,7 @@ export class PaintCloneComponent implements AfterViewInit {
   drawing = false;
   selectedColor = '#000000';
   brushSize = 5;
+  isErasing = false;
 
   ngAfterViewInit(): void {
     const canvas = this.canvasRef.nativeElement;
@@ -20,7 +21,6 @@ export class PaintCloneComponent implements AfterViewInit {
 
     this.resizeCanvas();
 
-    // Use Pointer Events for mouse, touch, stylus, tablet support
     canvas.addEventListener('pointerdown', (e) => this.onPointerDown(e));
     canvas.addEventListener('pointerup', () => this.drawing = false);
     canvas.addEventListener('pointerout', () => this.drawing = false);
@@ -28,24 +28,23 @@ export class PaintCloneComponent implements AfterViewInit {
   }
 
   @HostListener('window:resize')
-resizeCanvas() {
-  const canvas = this.canvasRef.nativeElement;
-  const oldWidth = canvas.width;
-  const oldHeight = canvas.height;
+  resizeCanvas() {
+    const canvas = this.canvasRef.nativeElement;
+    const oldWidth = canvas.width;
+    const oldHeight = canvas.height;
 
-  const tempCanvas = document.createElement('canvas');
-  tempCanvas.width = oldWidth;
-  tempCanvas.height = oldHeight;
-  const tempCtx = tempCanvas.getContext('2d')!;
-  tempCtx.drawImage(canvas, 0, 0);
+    const tempCanvas = document.createElement('canvas');
+    tempCanvas.width = oldWidth;
+    tempCanvas.height = oldHeight;
+    const tempCtx = tempCanvas.getContext('2d')!;
+    tempCtx.drawImage(canvas, 0, 0);
 
-  // Set both CSS and pixel resolution together
-  canvas.width = canvas.parentElement!.clientWidth;
-  canvas.height = canvas.parentElement!.clientHeight;
+    canvas.width = canvas.parentElement!.clientWidth;
+    canvas.height = canvas.parentElement!.clientHeight;
 
-  this.ctx.drawImage(tempCanvas, 0, 0, oldWidth, oldHeight, 0, 0, canvas.width, canvas.height);
-  this.ctx.beginPath();
-}
+    this.ctx.drawImage(tempCanvas, 0, 0, oldWidth, oldHeight, 0, 0, canvas.width, canvas.height);
+    this.ctx.beginPath();
+  }
 
   onPointerDown(e: PointerEvent) {
     this.drawing = true;
@@ -63,7 +62,7 @@ resizeCanvas() {
     const pressure = e.pressure || 0.5;
     const dynamicBrushSize = this.brushSize * pressure;
 
-    this.ctx.strokeStyle = this.selectedColor;
+    this.ctx.strokeStyle = this.isErasing ? '#FFFFFF' : this.selectedColor;
     this.ctx.lineWidth = dynamicBrushSize;
 
     this.ctx.lineTo(x, y);
@@ -76,5 +75,9 @@ resizeCanvas() {
     const canvas = this.canvasRef.nativeElement;
     this.ctx.clearRect(0, 0, canvas.width, canvas.height);
     this.ctx.beginPath();
+  }
+
+  toggleEraser() {
+    this.isErasing = !this.isErasing;
   }
 }
