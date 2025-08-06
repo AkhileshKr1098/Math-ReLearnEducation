@@ -99,7 +99,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 50px;
+  padding: 0px;
 
 }
 
@@ -111,8 +111,19 @@
   text-transform: uppercase;
   text-align: center;
   margin-bottom: 15px;
+  background-color: red;
 
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  /* Fix vertical clipping */
+  height: auto;
+  line-height: 1.2; /* or adjust as needed */
+  padding: 10px 0;  /* optional: give space above/below text */
 }
+
+
 
 
 .option-buttons {
