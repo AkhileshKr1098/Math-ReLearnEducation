@@ -7,14 +7,24 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { RegistrationComponent } from './registration/registration.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
+import { MatIconModule } from '@angular/material/icon';
+import { AdminHomePageComponent } from './admin-home-page/admin-home-page.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatTableModule } from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    AdminHomePageComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +35,18 @@ import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
     NgxUiLoaderModule,
     NgxUiLoaderHttpModule.forRoot({
       showForeground: true,
-    })
+    }),
+    MatIconModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatTableModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatDialogModule,
+    MatInputModule,
+    MatIconModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
