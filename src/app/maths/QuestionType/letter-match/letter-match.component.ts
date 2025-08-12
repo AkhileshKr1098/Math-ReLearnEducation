@@ -6,6 +6,7 @@ import { QuestionData } from 'src/app/interface/Question.interface';
 import { UserData } from 'src/app/interface/student.interface';
 import { SharedService } from 'src/app/shared.service';
 import html2canvas from 'html2canvas';
+import { MathCrudService } from 'src/app/math-crud.service';
 
 
 interface Point {
@@ -72,9 +73,8 @@ export class LetterMatchComponent implements AfterViewInit {
   outputMessage = new BehaviorSubject<number>(0)
 
   constructor(
-    private dialog: MatDialog,
     private shared: SharedService,
-    private _crud: CRUDService
+    private _crud: MathCrudService
   ) {
 
   }

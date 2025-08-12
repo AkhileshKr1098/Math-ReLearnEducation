@@ -7,6 +7,7 @@ import { UserData } from 'src/app/interface/student.interface';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { CorrectBoxComponent } from 'src/app/english/correct-box/correct-box.component';
 import { OppsBoxComponent } from 'src/app/english/opps-box/opps-box.component';
+import { MathCrudService } from 'src/app/math-crud.service';
 
 @Component({
   selector: 'app-blend-words',
@@ -26,7 +27,7 @@ export class BlendWordsComponent implements OnInit {
   currentDay: any = 0;
   constructor(
     private dialog: MatDialog,
-    private _crud: CRUDService,
+    private _crud: MathCrudService,
     private shared: SharedService,
     private sanitizer: DomSanitizer
 

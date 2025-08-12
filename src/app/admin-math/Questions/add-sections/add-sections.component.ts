@@ -2,6 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { CRUDService } from 'src/app/crud.service';
+import { MathCrudService } from 'src/app/math-crud.service';
 
 @Component({
   selector: 'app-add-sections',
@@ -13,7 +14,7 @@ export class AddSectionsComponent {
   profileImage: any = '../../../assets/icon/profile.jpeg'
   constructor(
     private _fb: FormBuilder,
-    private _crud: CRUDService,
+    private _crud: MathCrudService,
     private matref: MatDialogRef<AddSectionsComponent>,
     @Inject(MAT_DIALOG_DATA) public edit_data: any
   ) {

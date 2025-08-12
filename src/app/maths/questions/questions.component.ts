@@ -2,9 +2,9 @@ import { Component, ViewChild } from '@angular/core';
 import { AnsReportRes, QuestionData, QuestionDataRes } from 'src/app/interface/Question.interface';
 import { SharedService } from 'src/app/shared.service';
 import { CurrentReportRes } from 'src/app/interface/report.interafce';
-import { CRUDService } from 'src/app/crud.service';
 import { MatDialog } from '@angular/material/dialog';
 import { PaintCloneComponent } from './paint-clone/paint-clone.component';
+import { MathCrudService } from 'src/app/math-crud.service';
 
 @Component({
   selector: 'app-questions',
@@ -29,7 +29,7 @@ export class QuestionsComponent {
 
 
   constructor(
-    private _crud: CRUDService,
+    private _crud: MathCrudService,
     private dialog: MatDialog,
     public shared: SharedService
   ) {

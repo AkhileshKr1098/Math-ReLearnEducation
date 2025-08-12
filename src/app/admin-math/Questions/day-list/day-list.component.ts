@@ -4,6 +4,7 @@ import { CRUDService } from 'src/app/crud.service';
 import { AddDayComponent } from '../add-day/add-day.component';
 import { ConfirmBoxComponentComponent } from '../../confirm-box-component/confirm-box-component.component';
 import { DayRes } from 'src/app/interface/Question.interface';
+import { MathCrudService } from 'src/app/math-crud.service';
 
 @Component({
   selector: 'app-day-list',
@@ -16,7 +17,7 @@ export class DayListComponent {
   deletevalue: any = 1
   constructor(
     private dialog: MatDialog,
-    private _crud: CRUDService
+    private _crud: MathCrudService
 
   ) { }
   ngOnInit() {

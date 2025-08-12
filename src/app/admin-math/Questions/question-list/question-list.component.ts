@@ -4,6 +4,7 @@ import { CRUDService } from 'src/app/crud.service';
 import { AddQuestionComponent } from '../add-question/add-question.component';
 import { ConfirmBoxComponentComponent } from '../../confirm-box-component/confirm-box-component.component';
 import { Class, ClassRes, Day, QuestionData, Sections, SubTopic, Topics, TopicsRes, Week } from 'src/app/interface/Question.interface';
+import { MathCrudService } from 'src/app/math-crud.service';
 
 @Component({
   selector: 'app-question-list',
@@ -23,7 +24,7 @@ export class QuestionListComponent {
   deletevalue: any = 1
   constructor(
     private dialog: MatDialog,
-    private _crud: CRUDService
+    private _crud: MathCrudService
   ) { }
 
   ngOnInit() {

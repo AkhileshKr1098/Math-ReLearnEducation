@@ -5,6 +5,7 @@ import { AddUnitComponent } from '../add-unit/add-unit.component';
 import { CRUDService } from 'src/app/crud.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ConfirmBoxComponentComponent } from '../../confirm-box-component/confirm-box-component.component';
+import { MathCrudService } from 'src/app/math-crud.service';
 
 @Component({
   selector: 'app-unit-list',
@@ -17,7 +18,7 @@ export class UnitListComponent {
   deletevalue: any = 1
   constructor(
     private dialog: MatDialog,
-    private _crud: CRUDService
+    private _crud: MathCrudService
 
   ) { }
   ngOnInit() {

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { CRUDService } from 'src/app/crud.service';
 import { ConfirmBoxComponentComponent } from '../../confirm-box-component/confirm-box-component.component';
 import { AddClassesComponent } from '../add-classes/add-classes.component';
+import { MathCrudService } from 'src/app/math-crud.service';
 
 @Component({
   selector: 'app-classes',
@@ -15,7 +15,7 @@ export class ClassesComponent {
   deletevalue: any = 1
   constructor(
     private dialog: MatDialog,
-    private _crud: CRUDService
+    private _crud: MathCrudService
 
   ) { }
   ngOnInit() {

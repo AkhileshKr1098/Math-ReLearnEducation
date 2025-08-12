@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { CRUDService } from 'src/app/crud.service';
 import { Week, WeekRes } from 'src/app/interface/Question.interface';
+import { MathCrudService } from 'src/app/math-crud.service';
 
 @Component({
   selector: 'app-add-day',
@@ -15,7 +16,7 @@ export class AddDayComponent {
   profileImage: any = '../../../assets/icon/profile.jpeg'
   constructor(
     private _fb: FormBuilder,
-    private _crud: CRUDService,
+    private _crud: MathCrudService,
     private matref: MatDialogRef<AddDayComponent>,
     @Inject(MAT_DIALOG_DATA) public edit_data: any
   ) {

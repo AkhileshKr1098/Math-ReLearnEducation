@@ -4,6 +4,7 @@ import { CRUDService } from 'src/app/crud.service';
 import { AddWeekComponent } from '../add-week/add-week.component';
 import { ConfirmBoxComponentComponent } from '../../confirm-box-component/confirm-box-component.component';
 import { Week, WeekRes } from 'src/app/interface/Question.interface';
+import { MathCrudService } from 'src/app/math-crud.service';
 
 @Component({
   selector: 'app-week',
@@ -16,7 +17,7 @@ export class WeekComponent {
   deletevalue: any = 1
   constructor(
     private dialog: MatDialog,
-    private _crud: CRUDService
+    private _crud: MathCrudService
 
   ) { }
   ngOnInit() {

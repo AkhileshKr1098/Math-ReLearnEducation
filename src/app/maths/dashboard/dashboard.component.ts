@@ -1,8 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatAccordion } from '@angular/material/expansion';
 import { Router } from '@angular/router';
-import { CRUDService } from 'src/app/crud.service';
 import { SectionsFilter, SectionsFilterRes, Topics, Week } from 'src/app/interface/Question.interface';
+import { MathCrudService } from 'src/app/math-crud.service';
 import { SharedService } from 'src/app/shared.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { SharedService } from 'src/app/shared.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
-@ViewChild(MatAccordion) accordion!: MatAccordion;
+  @ViewChild(MatAccordion) accordion!: MatAccordion;
 
   weeksList: Week[] = []
   TopicsList: Topics[] = []
@@ -38,7 +38,7 @@ export class DashboardComponent {
 
 
   constructor(
-    private _crud: CRUDService,
+    private _crud: MathCrudService,
     private shared: SharedService,
     private _router: Router
   ) {
@@ -120,8 +120,8 @@ export class DashboardComponent {
 
   }
 
-    setDefaultImage(event: any) {
-  event.target.src = '../../../assets/icon/profile.jpeg';
-}
+  setDefaultImage(event: any) {
+    event.target.src = '../../../assets/icon/profile.jpeg';
+  }
 
 }

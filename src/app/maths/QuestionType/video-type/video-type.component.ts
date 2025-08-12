@@ -7,6 +7,7 @@ import { SharedService } from 'src/app/shared.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { CorrectBoxComponent } from 'src/app/english/correct-box/correct-box.component';
 import { OppsBoxComponent } from 'src/app/english/opps-box/opps-box.component';
+import { MathCrudService } from 'src/app/math-crud.service';
 
 
 @Component({
@@ -28,7 +29,7 @@ export class VideoTypeComponent {
 
   constructor(
     private dialog: MatDialog,
-    private _crud: CRUDService,
+    private _crud: MathCrudService,
     private shared: SharedService,
     private sanitizer: DomSanitizer
   ) {

@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Day, Grade, Week } from 'src/app/interface/Question.interface';
 import { CRUDService } from 'src/app/crud.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MathCrudService } from 'src/app/math-crud.service';
 @Component({
   selector: 'app-add-unit',
   templateUrl: './add-unit.component.html',
@@ -14,7 +15,7 @@ export class AddUnitComponent {
   profileImage: any = '../../../assets/icon/profile.jpeg'
   constructor(
     private _fb: FormBuilder,
-    private _crud: CRUDService,
+    private _crud: MathCrudService,
     private matref: MatDialogRef<AddUnitComponent>,
     @Inject(MAT_DIALOG_DATA) public edit_data: any
   ) {

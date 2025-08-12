@@ -8,9 +8,10 @@ import { CurrentReportRes } from './interface/report.interafce';
 @Injectable({
   providedIn: 'root'
 })
-export class CRUDService {
-  base_url: string = 'https://ud.mausamstudio.com/eng_relearn_api/'
-  img_base_url = new BehaviorSubject<string>('https://ud.mausamstudio.com/eng_relearn_api/')
+export class MathCrudService {
+
+  base_url: string = 'https://ud.mausamstudio.com/math_relearn_api/'
+  img_base_url = new BehaviorSubject<string>('https://ud.mausamstudio.com/math_relearn_api/')
 
   constructor(
     private _http: HttpClient
@@ -71,7 +72,7 @@ export class CRUDService {
 
   getClass(): Observable<ClassRes> {
     return this._http.get<ClassRes>(`${this.base_url}classes.php
-`)
+  `)
   }
 
   classAdd(data: any): Observable<any> {
@@ -244,12 +245,12 @@ export class CRUDService {
   // by answer
   Add_answers_api(data: any): Observable<any> {
     return this._http.post<any>(`${this.base_url}ans_save_letter_tracking.php
-`, data)
+  `, data)
   }
 
   Update_answers_api(data: any): Observable<any> {
     return this._http.post<any>(`${this.base_url}ans_save_letter_tracking.php
-`, data)
+  `, data)
   }
 
   Get_answers_api(data: any): Observable<any> {
@@ -325,10 +326,5 @@ export class CRUDService {
     }
     return this._http.get<AnswerWithQuestionRes>(`${this.base_url}get_ans_priview.php`, { params });
   }
-
-
-
-
-
 
 }

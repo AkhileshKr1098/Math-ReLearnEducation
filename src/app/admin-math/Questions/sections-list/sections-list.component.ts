@@ -4,6 +4,7 @@ import { CRUDService } from 'src/app/crud.service';
 import { Sections, SectionsRes } from 'src/app/interface/Question.interface';
 import { AddSectionsComponent } from '../add-sections/add-sections.component';
 import { ConfirmBoxComponentComponent } from '../../confirm-box-component/confirm-box-component.component';
+import { MathCrudService } from 'src/app/math-crud.service';
 
 @Component({
   selector: 'app-sections-list',
@@ -16,7 +17,7 @@ export class SectionsListComponent {
   deletevalue: any = 1
   constructor(
     private dialog: MatDialog,
-    private _crud: CRUDService
+    private _crud: MathCrudService
 
   ) { }
   ngOnInit() {

@@ -4,6 +4,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TimeScale } from 'chart.js';
 import { CRUDService } from 'src/app/crud.service';
 import { Sections } from 'src/app/interface/Question.interface';
+import { MathCrudService } from 'src/app/math-crud.service';
 
 @Component({
   selector: 'app-add-topics',
@@ -18,7 +19,7 @@ export class AddTopicsComponent {
   base_url: string = ''
   constructor(
     private _fb: FormBuilder,
-    private _crud: CRUDService,
+    private _crud: MathCrudService,
     private matref: MatDialogRef<AddTopicsComponent>,
     @Inject(MAT_DIALOG_DATA) public edit_data: any
   ) {

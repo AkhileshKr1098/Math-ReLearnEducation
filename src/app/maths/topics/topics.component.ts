@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CRUDService } from 'src/app/crud.service';
+import { MathCrudService } from 'src/app/math-crud.service';
 
 @Component({
   selector: 'app-topics',
@@ -8,11 +9,11 @@ import { CRUDService } from 'src/app/crud.service';
   styleUrls: ['./topics.component.scss']
 })
 export class TopicsComponent {
- base_url: string = ''
+  base_url: string = ''
 
   constructor(
     private _router: Router,
-    private _crud: CRUDService
+    private _crud: MathCrudService
   ) {
 
     this.ongetTopics()

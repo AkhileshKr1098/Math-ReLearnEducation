@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { CRUDService } from 'src/app/crud.service';
 import { AddTopicsComponent } from '../add-topics/add-topics.component';
 import { ConfirmBoxComponentComponent } from '../../confirm-box-component/confirm-box-component.component';
+import { MathCrudService } from 'src/app/math-crud.service';
 
 @Component({
   selector: 'app-topics-list',
@@ -16,7 +17,7 @@ export class TopicsListComponent {
   base_url: string = ''
   constructor(
     private dialog: MatDialog,
-    private _crud: CRUDService
+    private _crud: MathCrudService
 
   ) {
     this._crud.img_base_url.subscribe(

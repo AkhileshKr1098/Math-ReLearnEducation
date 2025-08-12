@@ -6,6 +6,7 @@ import { CRUDService } from 'src/app/crud.service';
 import { Class, ClassRes, Day, Sections, SubTopic, Topics, TopicsRes, Week } from 'src/app/interface/Question.interface';
 
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { MathCrudService } from 'src/app/math-crud.service';
 
 
 @Component({
@@ -38,7 +39,7 @@ export class AddQuestionComponent {
 
   constructor(
     private _fb: FormBuilder,
-    private _crud: CRUDService,
+    private _crud: MathCrudService,
     private matref: MatDialogRef<AddQuestionComponent>,
     private cdr: ChangeDetectorRef,
     @Inject(MAT_DIALOG_DATA) public edit_data: any,

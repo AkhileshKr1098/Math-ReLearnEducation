@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { CRUDService } from 'src/app/crud.service';
 import { AddSubTopicsComponent } from '../add-sub-topics/add-sub-topics.component';
 import { ConfirmBoxComponentComponent } from '../../confirm-box-component/confirm-box-component.component';
+import { MathCrudService } from 'src/app/math-crud.service';
 
 @Component({
   selector: 'app-sub-topics-list',
@@ -15,7 +16,7 @@ export class SubTopicsListComponent {
   deletevalue: any = 1
   constructor(
     private dialog: MatDialog,
-    private _crud: CRUDService
+    private _crud: MathCrudService
 
   ) { }
   ngOnInit() {

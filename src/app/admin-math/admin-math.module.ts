@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AdminMathRoutingModule } from './admin-math-routing.module';
-import { HomeComponent } from './home/home.component';
 
 import { MatButtonModule } from '@angular/material/button';
 
@@ -34,19 +33,14 @@ import { AddQuestionComponent } from './Questions/add-question/add-question.comp
 import { SectionsListComponent } from './Questions/sections-list/sections-list.component';
 import { AddSectionsComponent } from './Questions/add-sections/add-sections.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
-import { StudenListComponent } from './studen-list/studen-list.component';
-import { StudenAddFormComponent } from './studen-add-form/studen-add-form.component';
 import { ConfirmBoxComponentComponent } from './confirm-box-component/confirm-box-component.component';
 
 
 @NgModule({
   declarations: [
-    HomeComponent,
     AdminLoginComponent,
     AdminHomeComponent,
     AdminDashboardComponent,
-    StudenListComponent,
-    StudenAddFormComponent,
     ConfirmBoxComponentComponent,
     WeekComponent,
     AddWeekComponent,

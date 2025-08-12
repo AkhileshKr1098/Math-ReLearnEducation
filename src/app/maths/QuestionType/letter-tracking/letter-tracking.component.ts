@@ -8,6 +8,7 @@ import { LetterTracingService } from 'src/app/letter-tracing.service';
 import { UserData } from 'src/app/interface/student.interface';
 import { CorrectBoxComponent } from 'src/app/english/correct-box/correct-box.component';
 import { OppsBoxComponent } from 'src/app/english/opps-box/opps-box.component';
+import { MathCrudService } from 'src/app/math-crud.service';
 
 @Component({
   selector: 'app-letter-tracking',
@@ -66,7 +67,7 @@ export class LetterTrackingComponent implements AfterViewInit {
   };
 
   constructor(
-    private _crud: CRUDService,
+    private _crud: MathCrudService,
     private dialog: MatDialog,
     private _shared: SharedService,
     private tracingService: LetterTracingService
@@ -89,16 +90,16 @@ export class LetterTrackingComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.startPainting();
     this.currentCharacter.next(String(this.CurrentQyt.OptionA))
-    setTimeout(()=>{
-this.Setnew()
-    },1000)
+    setTimeout(() => {
+      this.Setnew()
+    }, 1000)
   }
 
-   ngOnChanges(changes: SimpleChanges): void {
+  ngOnChanges(changes: SimpleChanges): void {
     if (changes['CurrentQyt'] && !changes['CurrentQyt'].firstChange) {
       console.log('CurrentQyt changed:', changes['CurrentQyt'].currentValue);
       this.Setnew()
-          this.startPainting();
+      this.startPainting();
 
     }
   }
@@ -120,10 +121,10 @@ this.Setnew()
     this.isSaveVisible = false;
   }
 
-  Setnew(){
+  Setnew() {
     console.log(this.currentCharacter);
-    
-      this.currentCharacter.next(this.CurrentQyt.OptionA)
+
+    this.currentCharacter.next(this.CurrentQyt.OptionA)
     console.log(this.currentCharacter);
     this.drawCharacter()
 
