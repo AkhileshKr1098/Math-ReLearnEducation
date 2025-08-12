@@ -1,7 +1,33 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { WeekComponent } from './Questions/week/week.component';
+import { DayListComponent } from './Questions/day-list/day-list.component';
+import { ClassesComponent } from './Questions/classes/classes.component';
+import { SectionsListComponent } from './Questions/sections-list/sections-list.component';
+import { UnitListComponent } from './Questions/unit-list/unit-list.component';
+import { TopicsListComponent } from './Questions/topics-list/topics-list.component';
+import { SubTopicsListComponent } from './Questions/sub-topics-list/sub-topics-list.component';
+import { QuestionListComponent } from './Questions/question-list/question-list.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', component: AdminLoginComponent },
+  {
+    path: 'home', component: AdminHomeComponent, children: [
+      { path: 'week', component: WeekComponent },
+      { path: 'day', component: DayListComponent },
+      { path: 'classes', component: ClassesComponent },
+      { path: 'Sections', component: SectionsListComponent },
+      { path: 'units', component: UnitListComponent },
+      { path: 'topics', component: TopicsListComponent },
+      { path: 'subtopics', component: SubTopicsListComponent },
+      { path: 'question', component: QuestionListComponent },
+
+    ]
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
