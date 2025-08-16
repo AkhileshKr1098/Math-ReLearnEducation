@@ -12,17 +12,17 @@ import { SubTopicsListComponent } from './Questions/sub-topics-list/sub-topics-l
 import { QuestionListComponent } from './Questions/question-list/question-list.component';
 
 const routes: Routes = [
-  { path: '', component: AdminLoginComponent },
   {
-    path: 'home', component: AdminHomeComponent, children: [
-      { path: 'week', component: WeekComponent },
-      { path: 'day', component: DayListComponent },
-      { path: 'classes', component: ClassesComponent },
-      { path: 'Sections', component: SectionsListComponent },
-      { path: 'units', component: UnitListComponent },
-      { path: 'topics', component: TopicsListComponent },
-      { path: 'subtopics', component: SubTopicsListComponent },
-      { path: 'question', component: QuestionListComponent },
+    path: '', component: AdminHomeComponent, children: [
+      { path: '', component: QuestionListComponent },
+      { path: 'math-question', component: QuestionListComponent },
+      { path: 'math-week', component: WeekComponent },
+      { path: 'math-day', component: DayListComponent },
+      { path: 'math-classes', component: ClassesComponent },
+      { path: 'math-Sections', component: SectionsListComponent },
+      { path: 'math-units', component: UnitListComponent },
+      { path: 'math-topics', component: TopicsListComponent },
+      { path: 'math-subtopics', component: SubTopicsListComponent },
 
     ]
   },

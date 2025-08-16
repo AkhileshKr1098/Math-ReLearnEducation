@@ -16,7 +16,7 @@
             </button>
 
             <div class="collapse" id="schedules">
-                <button class="options" routerLink="question" routerLinkActive="active">
+                <button class="options" routerLink="/adminEnglish/eng-question" routerLinkActive="active">
                     <mat-icon>arrow_right_alt</mat-icon>
                     Question
                 </button>
@@ -29,39 +29,39 @@
                         [@rotateIcon]="isOpen3 ? 'open' : 'closed'">keyboard_arrow_left</mat-icon>
                 </button>
                 <div class="collapse" id="masterData" routerLinkActive="active">
-                    <button class="options" routerLink="classes" routerLinkActive="active">
+                    <button class="options" routerLink="/adminEnglish/eng-classes" routerLinkActive="active">
                         <mat-icon>arrow_right_alt</mat-icon>
                         Class
                     </button>
 
-                    <button class="options" routerLink="week" routerLinkActive="active">
+                    <button class="options" routerLink="/adminEnglish/eng-week" routerLinkActive="active">
                         <mat-icon>arrow_right_alt</mat-icon>
                         Weeks
                     </button>
 
-                    <button class="options" routerLink="day" routerLinkActive="active">
+                    <button class="options" routerLink="/adminEnglish/eng-day" routerLinkActive="active">
                         <mat-icon>arrow_right_alt</mat-icon>
                         Day`s
                     </button>
 
-                    <button class="options" routerLink="Sections" routerLinkActive="active">
+                    <button class="options" routerLink="/adminEnglish/eng-Sections" routerLinkActive="active">
                         <mat-icon>arrow_right_alt</mat-icon>
                         Sections
                     </button>
 
 
 
-                    <button class="options" routerLink="topics" routerLinkActive="active">
+                    <button class="options" routerLink="/adminEnglish/eng-topics" routerLinkActive="active">
                         <mat-icon>arrow_right_alt</mat-icon>
                         Topic
                     </button>
 
-                    <button class="options" routerLink="subtopics" routerLinkActive="active">
+                    <button class="options" routerLink="/adminEnglish/eng-subtopics" routerLinkActive="active">
                         <mat-icon>arrow_right_alt</mat-icon>
                         Sub Topic
                     </button>
 
-                    <button class="options" routerLink="units" routerLinkActive="active">
+                    <button class="options" routerLink="/adminEnglish/eng-units" routerLinkActive="active">
                         <mat-icon>arrow_right_alt</mat-icon>
                         Unit
                     </button>
@@ -73,8 +73,8 @@
 
 
             <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#schedule" aria-expanded="true"
-                aria-controls="collapseExample" (click)="cstoggle()" [ngClass]="{'active':activeButton ===8}"
-                (click)="setActive(8)" routerLinkActive="active">
+                aria-controls="collapseExample" (click)="mqtoggle()" [ngClass]="{'active':activeButton ===11}"
+                (click)="setActive(11)" routerLinkActive="active">
                 <mat-icon>schedule</mat-icon>
                 Math Question
                 <mat-icon style="float: right;"
@@ -82,52 +82,52 @@
             </button>
 
             <div class="collapse" id="schedule">
-                <button class="options" routerLink="/adminMath/home/question" routerLinkActive="active">
+                <button class="options" routerLink="/adminMath/math-question" routerLinkActive="active">
                     <mat-icon>arrow_right_alt</mat-icon>
                     Question
                 </button>
-                <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#masterData"
-                    aria-expanded="true" aria-controls="collapseExample" (click)="mdtoggle()"
+                <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#masterDataa"
+                    aria-expanded="true" aria-controls="collapseExample" (click)="mdstoggle()"
                     [ngClass]="{'active':activeButton ===5}" (click)="setActive(5)" routerLinkActive="active">
                     <mat-icon>perm_data_setting</mat-icon>
                     Master Data
                     <mat-icon style="float: right;"
                         [@rotateIcon]="isOpen3 ? 'open' : 'closed'">keyboard_arrow_left</mat-icon>
                 </button>
-                <div class="collapse" id="masterData" routerLinkActive="active">
+                <div class="collapse" id="masterDataa" routerLinkActive="active">
                     <button class="options" routerLink="classes" routerLinkActive="active">
                         <mat-icon>arrow_right_alt</mat-icon>
                         Class
                     </button>
 
-                    <button class="options" routerLink="week" routerLinkActive="active">
+                    <button class="options" routerLink="/adminMath/math-week" routerLinkActive="active">
                         <mat-icon>arrow_right_alt</mat-icon>
                         Weeks
                     </button>
 
-                    <button class="options" routerLink="day" routerLinkActive="active">
+                    <button class="options" routerLink="/adminMath/math-day" routerLinkActive="active">
                         <mat-icon>arrow_right_alt</mat-icon>
                         Day`s
                     </button>
 
-                    <button class="options" routerLink="Sections" routerLinkActive="active">
+                    <button class="options" routerLink="/adminMath/math-Sections" routerLinkActive="active">
                         <mat-icon>arrow_right_alt</mat-icon>
                         Sections
                     </button>
 
 
 
-                    <button class="options" routerLink="topics" routerLinkActive="active">
+                    <button class="options" routerLink="/adminMath/math-topics" routerLinkActive="active">
                         <mat-icon>arrow_right_alt</mat-icon>
                         Topic
                     </button>
 
-                    <button class="options" routerLink="subtopics" routerLinkActive="active">
+                    <button class="options" routerLink="/adminMath/math-subtopics" routerLinkActive="active">
                         <mat-icon>arrow_right_alt</mat-icon>
                         Sub Topic
                     </button>
 
-                    <button class="options" routerLink="units" routerLinkActive="active">
+                    <button class="options" routerLink="/adminMath/math-units" routerLinkActive="active">
                         <mat-icon>arrow_right_alt</mat-icon>
                         Unit
                     </button>

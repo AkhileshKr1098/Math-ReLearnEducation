@@ -33,6 +33,7 @@ export class AdminHomeComponent {
   isOpen7 = false;
   isOpen8 = false;
   isOpen9 = false;
+  isOpen10 = false;
 
   toggle() {
     this.isOpen = !this.isOpen;
@@ -42,6 +43,9 @@ export class AdminHomeComponent {
   }
   mdtoggle() {
     this.isOpen3 = !this.isOpen3;
+  }
+  mdstoggle() {
+    this.isOpen10 = !this.isOpen10;
   }
   fttoggle() {
     this.isOpen4 = !this.isOpen4;
