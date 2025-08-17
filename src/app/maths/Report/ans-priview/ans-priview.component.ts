@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CRUDService } from 'src/app/crud.service';
 import { AnswerWithQuestion, AnswerWithQuestionRes } from 'src/app/interface/Question.interface';
+import { MathCrudService } from 'src/app/math-crud.service';
 import { SharedService } from 'src/app/shared.service';
 
 interface qdata {
@@ -21,7 +22,7 @@ export class AnsPriviewComponent implements OnInit {
   audio: HTMLAudioElement | null = null;
 
   constructor(
-    private _crud: CRUDService,
+    private _crud: MathCrudService,
     public _shared: SharedService,
     @Inject(MAT_DIALOG_DATA) public data: qdata,
 
@@ -32,7 +33,7 @@ export class AnsPriviewComponent implements OnInit {
       }
     )
 
-    this._shared.base_url_eng_ans_img.subscribe(
+    this._shared.base_url_math_ans_img.subscribe(
       (res)=>{
         this.base_url_ans_img = res
       }

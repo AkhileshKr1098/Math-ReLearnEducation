@@ -45,7 +45,9 @@ export class QuestionsComponent {
 
   ngOnInit(): void {
     if (this.userData?.Class && this.userData?.ID) {
-      this._crud.getQuestionFilter(this.userData.Class, this.currentWeek, this.shared.currentDay.getValue(), this.userData.ID, this.SelectedTopics, this.userData?.MaxQToDo)
+     const curDay = Number(sessionStorage.getItem('selectedDay')) || this.shared.currentDay.getValue();
+
+      this._crud.getQuestionFilter(this.userData.Class, this.currentWeek, curDay, this.userData.ID, this.SelectedTopics, this.userData?.MaxQToDo)
         .subscribe((res: QuestionDataRes) => {
           if (Array.isArray(res.data)) {
             this.AllQuestion = res.data;

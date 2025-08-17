@@ -32,7 +32,7 @@ export class VideoTypeComponent {
     private shared: SharedService,
     private sanitizer: DomSanitizer
   ) {
-    this.base_url = this.shared.base_url.getValue()
+    this.base_url = this.shared.base_url_eng.getValue()
   }
 
   ngOnInit() {

@@ -9,7 +9,6 @@ import { CurrentReportRes } from './interface/report.interafce';
   providedIn: 'root'
 })
 export class MathCrudService {
-
   base_url: string = 'https://ud.mausamstudio.com/math_relearn_api/'
   img_base_url = new BehaviorSubject<string>('https://ud.mausamstudio.com/math_relearn_api/')
 

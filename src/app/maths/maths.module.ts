@@ -39,6 +39,9 @@ import { LetterTrackingComponent } from './QuestionType/letter-tracking/letter-t
 import { ListenWordsComponent } from './QuestionType/listen-words/listen-words.component';
 import { MCQComponent } from './QuestionType/mcq/mcq.component';
 import { VideoTypeComponent } from './QuestionType/video-type/video-type.component';
+import { AnsPriviewComponent } from './Report/ans-priview/ans-priview.component';
+import { ReportPageComponent } from './Report/report-page/report-page.component';
+import { ReportPageDeatilsComponent } from './Report/report-page-deatils/report-page-deatils.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +55,11 @@ import { VideoTypeComponent } from './QuestionType/video-type/video-type.compone
     LetterTrackingComponent,
     ListenWordsComponent,
     MCQComponent,
-    VideoTypeComponent
+    VideoTypeComponent,
+    AnsPriviewComponent,
+    ReportPageComponent,
+    ReportPageDeatilsComponent
+
 
   ],
   imports: [

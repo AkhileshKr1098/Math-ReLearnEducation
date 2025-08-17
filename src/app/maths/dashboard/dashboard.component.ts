@@ -56,7 +56,7 @@ export class DashboardComponent {
   getWeeks() {
     this._crud.getWeek().subscribe(
       (res) => {
-        console.log(res);
+        console.log(res, 'getweek');
         if (Array.isArray(res.data)) {
           this.weeksList = res.data
         }
@@ -91,6 +91,8 @@ export class DashboardComponent {
     const cls = this.userData.Class
     this._crud.getsectionsFilter(cls).subscribe(
       (res: SectionsFilterRes) => {
+        console.log(res, 'SectionsFilterRes');
+
         if (Array.isArray(res.data)) {
           this.SectionsList = res.data
           this.SectionsListFilter = res.data
@@ -104,9 +106,10 @@ export class DashboardComponent {
   onTopics(day: any, event: MouseEvent) {
     console.log(day.name);
     sessionStorage.setItem('selectedDay', JSON.stringify(day.name));
-
-    event.preventDefault();
     console.log(day);
+    localStorage.setItem('currentday', day)
+    event.preventDefault();
+
     this._router.navigate(['/math/topic']);
   }
 
