@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { flush } from '@angular/core/testing';
 import { BehaviorSubject } from 'rxjs';
+import { UserData, UserProfile } from './interface/student.interface';
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +12,7 @@ export class SharedService {
     AbacusMaster: "0.00",
     AsignDate: "2025-06-12",
     AsignDay: "1",
-    CSDate: "2025-08-02",
+    CSDate: "2025-08-04",
     ContactNo: "6202572787",
     Course: "FT with Basics & MT",
     Currency: "",
@@ -74,7 +76,6 @@ export class SharedService {
 
   currentWeek = new BehaviorSubject<number>(1)
   currentDay = new BehaviorSubject<number>(1)
-
 
   WeekCalc() {
     console.log(this.userData);
