@@ -105,7 +105,7 @@ export class DashboardComponent {
 
   onTopics(day: any, event: MouseEvent) {
     console.log(day.name);
-    sessionStorage.setItem('selectedDay', JSON.stringify(day.name));
+    sessionStorage.setItem('selectedDay', day.name);
     console.log(day);
     localStorage.setItem('currentday', day)
     event.preventDefault();
@@ -114,13 +114,17 @@ export class DashboardComponent {
   }
 
 
-  onGetSections(week: number) {
+  onGetSections(week: any) {
     console.log(week);
-
+    sessionStorage.setItem('selectedWeek', week)
     this.SectionsList = this.SectionsListFilter.filter((item: any) => item.week == week)
     console.log(this.SectionsList);
 
 
+  }
+
+  getWeekAccess(weekNum: number): boolean {
+    return weekNum <= this.currentWeek && weekNum >= this.currentWeek - 3;
   }
 
   setDefaultImage(event: any) {

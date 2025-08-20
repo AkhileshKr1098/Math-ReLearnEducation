@@ -45,7 +45,7 @@ export class QuestionsComponent {
 
   ngOnInit(): void {
     if (this.userData?.Class && this.userData?.ID) {
-     const curDay = Number(sessionStorage.getItem('selectedDay')) || this.shared.currentDay.getValue();
+      const curDay = Number(sessionStorage.getItem('selectedDay')) || this.shared.currentDay.getValue();
 
       this._crud.getQuestionFilter(this.userData.Class, this.currentWeek, curDay, this.userData.ID, this.SelectedTopics, this.userData?.MaxQToDo)
         .subscribe((res: QuestionDataRes) => {
@@ -159,6 +159,15 @@ export class QuestionsComponent {
   }
 
 
+  getCurrentWeek() {
+    return Number(sessionStorage.getItem('selectedWeek')) || this.shared.currentWeek.getValue();
+
+  }
+
+  getCurrentDay() {
+    return Number(sessionStorage.getItem('selectedDay')) || this.shared.currentDay.getValue();
+
+  }
   toggleMax() {
     this.IsMaxMize = !this.IsMaxMize;
     setTimeout(() => {

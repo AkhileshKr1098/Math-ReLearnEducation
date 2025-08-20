@@ -188,6 +188,14 @@ export class VideoTypeComponent {
     video.muted = !video.muted;
   }
 
+    getCurrentWeek() {
+    return Number(sessionStorage.getItem('selectedWeek')) || this.shared.currentWeek.getValue();
+  }
+
+  getCurrentDay() {
+    return Number(sessionStorage.getItem('selectedDay')) || this.shared.currentDay.getValue();
+  }
+  
   toggleFullScreen(video: HTMLVideoElement) {
     if (document.fullscreenElement) {
       document.exitFullscreen();

@@ -34,7 +34,7 @@
             <div class="profileHeader">
                 <div class="profileimage">
                     <img [src]="'https://www.relearntoday.com/assets/images/students_img/' + userData?.ID + '.jpg'"
-                        alt="Profile" (error)="setDefaultImage($event)" >
+                        alt="Profile" (error)="setDefaultImage($event)">
 
                 </div>
                 <div class="name">
@@ -46,8 +46,8 @@
 
                 <div class="studentid">
                     <span>Class {{userData.Class}}</span>
-                    <span>Week {{currentWeek}} </span>
-                    <span>Day {{currentDay}}</span>
+                    <span>Week {{getCurrentWeek()}} </span>
+                    <span>Day {{getCurrentDay()}}</span>
                 </div>
 
             </div>

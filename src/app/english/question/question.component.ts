@@ -152,6 +152,16 @@ export class QuestionComponent implements OnInit, AfterViewInit {
     };
   }
 
+  getCurrentWeek() {
+    return Number(sessionStorage.getItem('selectedWeek')) || this.shared.currentWeek.getValue();
+
+  }
+
+  getCurrentDay() {
+    return Number(sessionStorage.getItem('selectedDay')) || this.shared.currentDay.getValue();
+
+  }
+
   setDefaultImage(event: any) {
     event.target.src = '../../../assets/icon/profile.jpeg';
   }

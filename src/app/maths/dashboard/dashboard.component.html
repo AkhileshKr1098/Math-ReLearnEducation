@@ -5,10 +5,12 @@
     </div>
     <div id="scrollarea">
       <mat-accordion *ngFor="let weeks of weeksList" class="example-headers-align">
-        <mat-expansion-panel>
+        <mat-expansion-panel [disabled]="!getWeekAccess(weeks.week_num)">
           <mat-expansion-panel-header (click)="onGetSections(weeks.week_num)">
-            <mat-panel-title>
-              Week {{weeks.week_num}}
+            <mat-panel-title style="display: flex;justify-content: space-between;">
+              <span> Week {{weeks.week_num}} </span>
+              <mat-icon *ngIf="!getWeekAccess(weeks.week_num)">lock</mat-icon>
+              <mat-icon *ngIf="getWeekAccess(weeks.week_num)">lock_open</mat-icon>
             </mat-panel-title>
           </mat-expansion-panel-header>
 
