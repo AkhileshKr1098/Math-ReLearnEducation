@@ -10,7 +10,7 @@
             <mat-panel-title style="display: flex;justify-content: space-between;">
               <span> Week {{weeks.week_num}} </span>
               <mat-icon *ngIf="!getWeekAccess(weeks.week_num)">lock</mat-icon>
-              <mat-icon *ngIf="getWeekAccess(weeks.week_num)">lock_open</mat-icon>
+              <mat-icon *ngIf="getWeekAccess(weeks.week_num)" style="color: green;">lock_open</mat-icon>
             </mat-panel-title>
           </mat-expansion-panel-header>
 

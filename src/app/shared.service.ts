@@ -12,7 +12,7 @@ export class SharedService {
     AbacusMaster: "0.00",
     AsignDate: "2025-06-12",
     AsignDay: "1",
-    CSDate: "2025-08-04",
+    CSDate: "2025-08-06",
     ContactNo: "6202572787",
     Course: "FT with Basics & MT",
     Currency: "",
@@ -36,7 +36,7 @@ export class SharedService {
     UserName: "Akhilesh Kumar",
     Validity: null,
     Week: "2",
-    Class: "UKG",
+    Class: " Year 1",
     School: 'USDK PT SCH',
     Country: 'USA',
     narratorSpeed: null // or some actual value if needed

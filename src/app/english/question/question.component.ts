@@ -87,9 +87,8 @@ export class QuestionComponent implements OnInit, AfterViewInit {
       }).subscribe((res: CurrentReportRes) => {
         if (res.success) {
           this.CurrentReport = res;
-          console.log('Today Report:', res.today_report);
-          console.log('Topic Wise Report:', res.topic_wise_report);
-        }
+           console.log('Today Report:', res.today_report_all_topics);
+          console.log('Topic Wise Report:', res.today_report_topics_wise);        }
       });
     }
   }
@@ -132,25 +131,29 @@ export class QuestionComponent implements OnInit, AfterViewInit {
     };
   }
 
-  private getEmptyReport(): CurrentReportRes {
-    return {
-      success: 0,
-      today_report: {
-        total: 0,
-        correct: 0,
-        incorrect: 0,
-        correct_percent: 0,
-        incorrect_percent: 0
-      },
-      topic_wise_report: {
-        total: 0,
-        correct: 0,
-        incorrect: 0,
-        correct_percent: 0,
-        incorrect_percent: 0
-      }
-    };
-  }
+private getEmptyReport(): CurrentReportRes {
+  return {
+    success: 0,
+    today_report_topics_wise: {
+      total_questions: 0,
+      solved: 0,
+      unsolved: 0,
+      correct: 0,
+      incorrect: 0,
+      correct_percent: 0,
+      incorrect_percent: 0
+    },
+    today_report_all_topics: {
+      total_questions: 0,
+      solved: 0,
+      unsolved: 0,
+      correct: 0,
+      incorrect: 0,
+      correct_percent: 0,
+      incorrect_percent: 0
+    }
+  };
+}
 
   getCurrentWeek() {
     return Number(sessionStorage.getItem('selectedWeek')) || this.shared.currentWeek.getValue();

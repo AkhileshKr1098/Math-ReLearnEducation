@@ -44,10 +44,15 @@ export class QuestionsComponent {
   }
 
   ngOnInit(): void {
+    this.getQuestion()
+    this.getCurrentReport();
+  }
+
+  getQuestion() {
     if (this.userData?.Class && this.userData?.ID) {
       const curDay = Number(sessionStorage.getItem('selectedDay')) || this.shared.currentDay.getValue();
 
-      this._crud.getQuestionFilter(this.userData.Class, this.currentWeek, curDay, this.userData.ID, this.SelectedTopics, this.userData?.MaxQToDo)
+      this._crud.getQuestionFilter(this.userData.Class, this.getCurrentWeek(), curDay, this.userData.ID, this.SelectedTopics, this.userData?.MaxQToDo)
         .subscribe((res: QuestionDataRes) => {
           if (Array.isArray(res.data)) {
             this.AllQuestion = res.data;
@@ -60,7 +65,7 @@ export class QuestionsComponent {
               this.QuestionType = this.CurrentQuestion.question_type;
             }
 
-            this.NextQuestion();
+            // this.NextQuestion();
           }
         });
     }
@@ -70,8 +75,6 @@ export class QuestionsComponent {
         this.NextQuestion();
       }
     });
-
-    this.getCurrentReport();
   }
 
   ngAfterViewInit(): void {
@@ -83,29 +86,50 @@ export class QuestionsComponent {
       this._crud.get_current_report({
         std_id: this.userData.ID,
         class: this.userData.Class,
-        week: this.currentWeek,
-        day: this.shared.currentDay.getValue(),
+        week: this.getCurrentWeek() || this.currentWeek,
+        day: this.getCurrentDay() || this.shared.currentDay.getValue(),
         topics: this.SelectedTopics
       }).subscribe((res: CurrentReportRes) => {
         if (res.success) {
           this.CurrentReport = res;
-          console.log('Today Report:', res.today_report);
-          console.log('Topic Wise Report:', res.topic_wise_report);
+          console.log('Today Report:', res.today_report_all_topics);
+          console.log('Topic Wise Report:', res.today_report_topics_wise);
         }
       });
     }
   }
 
+  // NextQuestion(): void {
+  //   if (this.AllQuestion.length === 0) return;
+
+  //   this.i = (this.i + 1) % this.AllQuestion.length;
+  //   this.CurrentQuestion = this.AllQuestion[this.i];
+  //   this.QuestionType = this.CurrentQuestion?.question_type || '';
+
+  //   console.log('Current Question:', this.CurrentQuestion);
+  //   this.getCurrentReport()
+  // }
+
   NextQuestion(): void {
     if (this.AllQuestion.length === 0) return;
 
-    this.i = (this.i + 1) % this.AllQuestion.length;
-    this.CurrentQuestion = this.AllQuestion[this.i];
-    this.QuestionType = this.CurrentQuestion?.question_type || '';
+    // if not at last question → go next
+    if (this.i < this.AllQuestion.length - 1) {
+      this.i++;
+      this.CurrentQuestion = this.AllQuestion[this.i];
+      this.QuestionType = this.CurrentQuestion?.question_type || '';
 
-    console.log('Current Question:', this.CurrentQuestion);
-    this.getCurrentReport()
+      console.log('Current Question:', this.CurrentQuestion);
+      this.getCurrentReport();
+      this.getQuestion();
+
+    }
+    else {
+      // this.getQuestion(); 
+    }
   }
+
+
 
   private getEmptyQuestion(): QuestionData {
     return {
@@ -134,25 +158,30 @@ export class QuestionsComponent {
     };
   }
 
-  private getEmptyReport(): CurrentReportRes {
-    return {
-      success: 0,
-      today_report: {
-        total: 0,
-        correct: 0,
-        incorrect: 0,
-        correct_percent: 0,
-        incorrect_percent: 0
-      },
-      topic_wise_report: {
-        total: 0,
-        correct: 0,
-        incorrect: 0,
-        correct_percent: 0,
-        incorrect_percent: 0
-      }
-    };
-  }
+private getEmptyReport(): CurrentReportRes {
+  return {
+    success: 0,
+    today_report_topics_wise: {
+      total_questions: 0,
+      solved: 0,
+      unsolved: 0,
+      correct: 0,
+      incorrect: 0,
+      correct_percent: 0,
+      incorrect_percent: 0
+    },
+    today_report_all_topics: {
+      total_questions: 0,
+      solved: 0,
+      unsolved: 0,
+      correct: 0,
+      incorrect: 0,
+      correct_percent: 0,
+      incorrect_percent: 0
+    }
+  };
+}
+
 
   setDefaultImage(event: any) {
     event.target.src = '../../../assets/icon/profile.jpeg';
