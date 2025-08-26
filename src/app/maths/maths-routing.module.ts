@@ -7,6 +7,7 @@ import { QuestionsComponent } from './questions/questions.component';
 import { ReportPageComponent } from './Report/report-page/report-page.component';
 import { ReportPageDeatilsComponent } from './Report/report-page-deatils/report-page-deatils.component';
 import { AnsPriviewComponent } from './Report/ans-priview/ans-priview.component';
+import { DaysComponent } from './days/days.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,7 @@ const routes: Routes = [
       { path: '', component: DashboardComponent },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'topic', component: TopicsComponent },
+      { path: 'days', component: DaysComponent },
       { path: 'question', component: QuestionsComponent },
       { path: 'report', component: ReportPageComponent },
       { path: 'reportdeatils', component: ReportPageDeatilsComponent },

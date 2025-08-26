@@ -116,15 +116,40 @@ export class DashboardComponent {
 
   onGetSections(week: any) {
     console.log(week);
-    sessionStorage.setItem('selectedWeek', week)
     this.SectionsList = this.SectionsListFilter.filter((item: any) => item.week == week)
     console.log(this.SectionsList);
 
 
   }
 
-  getWeekAccess(weekNum: number): boolean {
-    return weekNum <= this.currentWeek && weekNum >= this.currentWeek - 3;
+  getWeekStatus(weekNum: number): string {
+    if (weekNum === this.currentWeek) {
+      return "Current week";
+    } else if (weekNum < this.currentWeek && weekNum >= this.currentWeek - 2) {
+      return "Access week";
+    } else if (weekNum < this.currentWeek - 2) {
+      return "Completed";
+    } else {
+      return "Upcoming";
+    }
+  }
+
+  getWeekClass(weekNum: number): string {
+    if (weekNum === this.currentWeek) {
+      return "current";
+    } else if (weekNum < this.currentWeek && weekNum >= this.currentWeek - 2) {
+      return "access";
+    } else if (weekNum < this.currentWeek - 2) {
+      return "completed";
+    } else {
+      return "upcoming";
+    }
+  }
+
+  onDays(week: any) {
+    console.log(week);
+    sessionStorage.setItem('selectedWeek', week)
+    this._router.navigate(['math/days'])
   }
 
   setDefaultImage(event: any) {

@@ -42,6 +42,7 @@ import { VideoTypeComponent } from './QuestionType/video-type/video-type.compone
 import { AnsPriviewComponent } from './Report/ans-priview/ans-priview.component';
 import { ReportPageComponent } from './Report/report-page/report-page.component';
 import { ReportPageDeatilsComponent } from './Report/report-page-deatils/report-page-deatils.component';
+import { DaysComponent } from './days/days.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { ReportPageDeatilsComponent } from './Report/report-page-deatils/report-
     VideoTypeComponent,
     AnsPriviewComponent,
     ReportPageComponent,
-    ReportPageDeatilsComponent
+    ReportPageDeatilsComponent,
+    DaysComponent
 
 
   ],

@@ -48,6 +48,32 @@
     height: calc(100% - 60px);
     overflow-y: scroll;
 
+    .topic_title {
+      width: 100%;
+      height: 30px;
+      text-align: center;
+      font-weight: bold;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      color: #333;
+    }
+
+    .topic_title.current {
+      color: green;
+    }
+
+    .topic_title.access {
+      color: lightgreen;
+    }
+
+    .topic_title.completed {
+      color: blue;
+    }
+
+    .topic_title.upcoming {
+      color: red;
+    }
+
+
 
   }
 
