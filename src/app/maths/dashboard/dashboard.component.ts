@@ -137,13 +137,17 @@ export class DashboardComponent {
   getWeekClass(weekNum: number): string {
     if (weekNum === this.currentWeek) {
       return "current";
-    } else if (weekNum < this.currentWeek && weekNum >= this.currentWeek - 2) {
-      return "access";
-    } else if (weekNum < this.currentWeek - 2) {
-      return "completed";
-    } else {
-      return "upcoming";
     }
+
+    if (weekNum < this.currentWeek) {
+      if (weekNum >= this.currentWeek - 2) {
+        return "access";
+      } else {
+        return "completed";
+      }
+    }
+
+    return "upcoming";
   }
 
   onDays(week: any) {

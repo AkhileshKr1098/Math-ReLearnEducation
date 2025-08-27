@@ -10,6 +10,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    .header {
+        height: 50px;
+        background-color: #ccc;
+        position: absolute;
+        top: 5px;
+        left: 20px;
+        padding: 15px;
+        border-radius: 20px;
+        font-size: 25px;
+    }
 }
 
 .timeline {

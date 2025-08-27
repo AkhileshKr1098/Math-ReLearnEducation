@@ -46,4 +46,9 @@ export class DaysComponent {
 
     this._router.navigate(['/math/topic']);
   }
+
+  getCurrentWeek() {
+    return Number(sessionStorage.getItem('selectedWeek')) || this.shared.currentWeek.getValue();
+
+  }
 }

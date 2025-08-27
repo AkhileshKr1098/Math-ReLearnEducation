@@ -1,4 +1,6 @@
 <div class="lower_section">
+    <div class="header">Week {{getCurrentWeek()}} </div>
+
     <div class="timeline">
         <div *ngFor="let day of days1; let i = index" (click)="onTopics(day, $event)" class="day-container"
             [ngClass]="{ activeClass: day.name == currentDay }">
