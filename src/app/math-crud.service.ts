@@ -9,6 +9,7 @@ import { CurrentReportRes } from './interface/report.interafce';
   providedIn: 'root'
 })
 export class MathCrudService {
+
   base_url: string = 'https://ud.mausamstudio.com/math_relearn_api/'
   img_base_url = new BehaviorSubject<string>('https://ud.mausamstudio.com/math_relearn_api/')
 
@@ -26,6 +27,10 @@ export class MathCrudService {
 
   Student_registation(data: any): Observable<UserProfile> {
     return this._http.post<UserProfile>(`${this.base_url}student_registation.php`, data)
+  }
+
+  get_std_by_id(id: string): Observable<UserProfile> {
+    return this._http.get<UserProfile>(`${this.base_url}get_std_by_id.php?id=${id}`)
   }
 
   Week_insert(data: any): Observable<WeekInsertRes> {

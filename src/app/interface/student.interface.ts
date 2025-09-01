@@ -41,6 +41,9 @@ export interface UserProfile {
     HolidayFrom?: Date | null;
     HolidayTo?: Date | null;
     Date1: string;
+    Class: string;
+    School: string;
+    relearn_point: string
 }
 
 

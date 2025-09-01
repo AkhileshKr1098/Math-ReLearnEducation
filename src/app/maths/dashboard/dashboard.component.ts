@@ -21,6 +21,7 @@ export class DashboardComponent {
   userData: any = {};
   currentWeek: any = 0;
   currentDay: any = 0;
+  reLearnPoint: any = 0;
   days1 = [
     { name: '1', url: '../../../assets/icon/day1.png' },
     { name: '2', url: '../../../assets/icon/day2.png' },
@@ -43,6 +44,7 @@ export class DashboardComponent {
     private _router: Router
   ) {
     this.userData = JSON.parse(sessionStorage.getItem('rluser') || '{}');
+    this.getStdData(this.userData.ID)
     this.currentWeek = this.shared.currentWeek.getValue();
     this.currentDay = this.shared.currentDay.getValue();
   }
@@ -53,6 +55,14 @@ export class DashboardComponent {
     this.getSections()
   }
 
+  getStdData(id: string) {
+    this._crud.get_std_by_id(id).subscribe(
+      (res: any) => {
+        console.log(res.data);
+        this.reLearnPoint = res.data[0].relearn_point
+      }
+    )
+  }
   getWeeks() {
     this._crud.getWeek().subscribe(
       (res) => {

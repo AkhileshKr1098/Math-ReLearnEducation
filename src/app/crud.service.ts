@@ -23,6 +23,9 @@ export class CRUDService {
   get_student_data(): Observable<UserProfile> {
     return this._http.get<UserProfile>(`${this.base_url}student.php`)
   }
+  get_std_by_id(id: string): Observable<UserProfile> {
+    return this._http.get<UserProfile>(`${this.base_url}get_std_by_id.php?id=${id}`)
+  }
 
   Student_registation(data: any): Observable<UserProfile> {
     return this._http.post<UserProfile>(`${this.base_url}student_registation.php`, data)
