@@ -13,6 +13,7 @@ import { QTypeComponent } from './QuestionType/qtype/qtype.component';
 import { ReportPageComponent } from './Report/report-page/report-page.component';
 import { ReportPageDeatilsComponent } from './Report/report-page-deatils/report-page-deatils.component';
 import { AnsPriviewComponent } from './Report/ans-priview/ans-priview.component';
+import { DaysComponent } from './days/days.component';
 
 const routes: Routes = [
   // { path: '', component: LetterMatchComponent },
@@ -24,6 +25,7 @@ const routes: Routes = [
       { path: 'weeks', component: WeekByPageComponent },
       { path: 'topics', component: TopicsComponent },
       { path: 'question', component: QuestionComponent },
+      { path: 'days', component: DaysComponent },
 
       // for question type
       { path: 'qtype', component: QTypeComponent },

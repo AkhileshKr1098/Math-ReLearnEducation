@@ -124,6 +124,44 @@ export class DashboardComponent {
     return weekNum <= this.currentWeek && weekNum >= this.currentWeek - 3;
   }
 
+
+
+  getWeekStatus(weekNum: number): string {
+    if (weekNum === this.currentWeek) {
+      return "Current week";
+    } else if (weekNum < this.currentWeek && weekNum >= this.currentWeek - 2) {
+      return "Access week";
+    } else if (weekNum < this.currentWeek - 2) {
+      return "Completed";
+    } else {
+      return "Upcoming";
+    }
+  }
+
+  getWeekClass(weekNum: number): string {
+    if (weekNum === this.currentWeek) {
+      return "current";
+    }
+
+    if (weekNum < this.currentWeek) {
+      if (weekNum >= this.currentWeek - 2) {
+        return "access";
+      } else {
+        return "completed";
+      }
+    }
+
+    return "upcoming";
+  }
+
+  onDays(week: any) {
+    console.log(week);
+    sessionStorage.setItem('selectedWeek', week)
+    this._router.navigate(['/english/days'])
+  }
+
+
+
   setDefaultImage(event: any) {
     event.target.src = '../../../assets/icon/profile.jpeg';
   }

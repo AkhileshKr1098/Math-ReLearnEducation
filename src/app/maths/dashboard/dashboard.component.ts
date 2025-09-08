@@ -59,7 +59,7 @@ export class DashboardComponent {
     this._crud.get_std_by_id(id).subscribe(
       (res: any) => {
         console.log(res.data);
-        this.reLearnPoint = res.data[0].relearn_point
+        this.reLearnPoint = res.data[0].math_relearn_point
       }
     )
   }

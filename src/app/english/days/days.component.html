@@ -1,0 +1,17 @@
+<div class="lower_section">
+    <div class="header">Week {{getCurrentWeek()}} </div>
+
+    <div class="timeline">
+        <div *ngFor="let day of days1; let i = index" (click)="onTopics(day, $event)" class="day-container"
+            [ngClass]="{ activeClass: day.name == currentDay }">
+            <img [src]="day.url" alt="" (click)="onTopics(day, $event)">
+        </div>
+    </div>
+
+    <div class="timeline">
+        <div *ngFor="let day of days2; let i = index" (click)="onTopics(day, $event)" class="day-container2"
+            [ngClass]="{ activeClass: day.name == currentDay }">
+            <img [src]="day.url" alt="" (click)="onTopics(day, $event)">
+        </div>
+    </div>
+</div>

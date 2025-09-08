@@ -47,6 +47,7 @@ import { ReportPageDeatilsComponent } from './Report/report-page-deatils/report-
 import { MatTableModule } from '@angular/material/table';
 import { AnsPriviewComponent } from './Report/ans-priview/ans-priview.component';
 import { VideoTypeComponent } from './QuestionType/video-type/video-type.component';
+import { DaysComponent } from './days/days.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { VideoTypeComponent } from './QuestionType/video-type/video-type.compone
     ReportPageComponent,
     ReportPageDeatilsComponent,
     AnsPriviewComponent,
-    VideoTypeComponent],
+    VideoTypeComponent,
+    DaysComponent],
   imports: [
     CommonModule,
     EnglishRoutingModule,
