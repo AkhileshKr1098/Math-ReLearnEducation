@@ -88,9 +88,11 @@ export class DashboardComponent {
 
 
   getSections() {
-    const cls = this.userData.Class
+    const cls = this.userData.Class.trim()
     this._crud.getsectionsFilter(cls).subscribe(
       (res: SectionsFilterRes) => {
+        console.log(res, 'SectionsFilterRes');
+
         if (Array.isArray(res.data)) {
           this.SectionsList = res.data
           this.SectionsListFilter = res.data
@@ -110,16 +112,14 @@ export class DashboardComponent {
   }
 
 
-
   onGetSections(week: any) {
     console.log(week);
-    sessionStorage.setItem('selectedWeek', week)
+    console.log(this.SectionsListFilter);
 
     this.SectionsList = this.SectionsListFilter.filter((item: any) => item.week == week)
     console.log(this.SectionsList);
-
-
   }
+
   getWeekAccess(weekNum: number): boolean {
     return weekNum <= this.currentWeek && weekNum >= this.currentWeek - 3;
   }

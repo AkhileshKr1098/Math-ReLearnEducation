@@ -11,8 +11,6 @@
               <span> Week {{weeks.week_num}} <div class="topic_title" [ngClass]="getWeekClass(weeks.week_num)">
                   {{ getWeekStatus(weeks.week_num) }}
                 </div></span>
-              <!-- <mat-icon *ngIf="!getWeekAccess(weeks.week_num)">lock</mat-icon> -->
-              <!-- <mat-icon *ngIf="getWeekAccess(weeks.week_num)" style="color: green;">lock_open</mat-icon> -->
             </mat-panel-title>
           </mat-expansion-panel-header>
           <hr>
@@ -49,6 +47,8 @@
             <div class="row">{{userData.Class }}</div>
             <div class="row">{{userData.School}}</div>
             <div class="row">{{userData.Country}}</div>
+            <div class="row">Course : {{userData.Course}}</div>
+
           </div>
 
         </div>

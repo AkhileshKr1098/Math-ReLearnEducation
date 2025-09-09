@@ -45,7 +45,7 @@ export class DaysComponent {
     localStorage.setItem('currentday', day)
     event.preventDefault();
 
-    this._router.navigate(['/math/topic']);
+    this._router.navigate(['/english/topics']);
   }
 
   getCurrentWeek() {

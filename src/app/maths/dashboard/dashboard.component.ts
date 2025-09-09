@@ -127,9 +127,7 @@ export class DashboardComponent {
   onGetSections(week: any) {
     console.log(week);
     this.SectionsList = this.SectionsListFilter.filter((item: any) => item.week == week)
-    console.log(this.SectionsList);
-
-
+    console.log(this.SectionsList,'SectionsList');
   }
 
   getWeekStatus(weekNum: number): string {

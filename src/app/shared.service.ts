@@ -36,7 +36,7 @@ export class SharedService {
     UserName: "Akhilesh Kumar",
     Validity: null,
     Week: "2",
-    Class: " Year 1",
+    Class: "Year 1",
     School: 'USDK PT SCH',
     Country: 'USA',
     narratorSpeed: null // or some actual value if needed
