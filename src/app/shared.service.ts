@@ -80,6 +80,7 @@ export class SharedService {
   WeekCalc() {
     console.log(this.userData);
     let currentDate = new Date();
+    
     let startDate = new Date(this.userData.CSDate);
 
     if (!isNaN(startDate.getTime())) {

@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ConfirmBoxComponentComponent } from '../../confirm-box-component/confirm-box-component.component';
 import { AddClassesComponent } from '../add-classes/add-classes.component';
 import { MathCrudService } from 'src/app/math-crud.service';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-classes',
@@ -100,5 +101,9 @@ export class ClassesComponent {
       res.day.toString().toLowerCase().includes(data)
     );
   }
+
+  drop(event: CdkDragDrop<any[]>) {
+  moveItemInArray(this.FilterCleasses, event.previousIndex, event.currentIndex);
+}
 
 }
