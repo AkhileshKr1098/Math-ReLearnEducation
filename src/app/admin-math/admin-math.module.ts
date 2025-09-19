@@ -35,6 +35,7 @@ import { AddSectionsComponent } from './Questions/add-sections/add-sections.comp
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { ConfirmBoxComponentComponent } from './confirm-box-component/confirm-box-component.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 @NgModule({
@@ -74,7 +75,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     MatIconModule,
     ReactiveFormsModule,
     FormsModule,
-    DragDropModule
+    DragDropModule,
+    MatPaginatorModule
   ]
 })
 export class AdminMathModule { }

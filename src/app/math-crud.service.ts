@@ -257,6 +257,8 @@ export class MathCrudService {
   `, data)
   }
 
+
+
   Get_answers_api(data: any): Observable<any> {
     return this._http.post<any>(`${this.base_url}ans_save_letter_tracking.php`, data)
   }
@@ -329,6 +331,10 @@ export class MathCrudService {
       params = params.set('week', filters.week);
     }
     return this._http.get<AnswerWithQuestionRes>(`${this.base_url}get_ans_priview.php`, { params });
+  }
+
+  updateQuestionOrder(data: any[]): Observable<any> {
+    return this._http.post<any>(`${this.base_url}updateQuestionOrder.php`,{ data })
   }
 
 }
