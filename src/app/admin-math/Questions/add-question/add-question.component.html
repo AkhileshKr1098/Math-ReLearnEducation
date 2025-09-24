@@ -20,7 +20,7 @@
 
                 <div class="form-floating">
                     <select class="form-select" formControlName="week">
-                        <option value="" selected>Select Class</option>
+                        <option value="" selected>Select Week</option>
                         <option *ngFor="let item of weeks" [value]="item.week_num">{{item.week_num}}</option>
                     </select>
                     <label>Week</label>
@@ -34,18 +34,7 @@
                     <label>Day</label>
                 </div>
 
-                <div class="form-floating">
-                    <select class="form-select" formControlName="sections">
-                        <option value="" selected>Select sections</option>
-                        <option *ngFor="let item of sections" [value]="item.sections_name">{{item.sections_name}}
-                        </option>
-                    </select>
-                    <label>Sections</label>
-                </div>
-
-            </div>
-            <div class="row">
-                <div class="form-floating">
+                 <div class="form-floating">
                     <select class="form-select" formControlName="topics">
                         <option value="" selected>Select topic</option>
                         <option *ngFor="let item of topics" [value]="item.topics">{{item.topics}}
@@ -54,6 +43,11 @@
                     <label>Topics</label>
                 </div>
 
+
+
+            </div>
+            <div class="row">
+               
                 <div class="form-floating">
                     <select class="form-select" formControlName="sub_topics">
                         <option value="" selected>Select Sub Topics</option>

@@ -35,17 +35,6 @@
                 </div>
 
                 <div class="form-floating">
-                    <select class="form-select" formControlName="sections">
-                        <option value="" selected>Select sections</option>
-                        <option *ngFor="let item of sections" [value]="item.sections_name">{{item.sections_name}}
-                        </option>
-                    </select>
-                    <label>Sections</label>
-                </div>
-
-            </div>
-            <div class="row">
-                <div class="form-floating">
                     <select class="form-select" formControlName="topics">
                         <option value="" selected>Select topic</option>
                         <option *ngFor="let item of topics" [value]="item.topics">{{item.topics}}
@@ -53,6 +42,10 @@
                     </select>
                     <label>Topics</label>
                 </div>
+
+
+            </div>
+            <div class="row">
 
                 <div class="form-floating">
                     <select class="form-select" formControlName="sub_topics">

@@ -3,7 +3,7 @@ import { Component, Inject, ChangeDetectorRef } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { CRUDService } from 'src/app/crud.service';
-import { Class, ClassRes, Day, Sections, SubTopic, Topics, TopicsRes, Week } from 'src/app/interface/Question.interface';
+import { Class, ClassRes, Day, SubTopic, Topics, TopicsRes, Week } from 'src/app/interface/Question.interface';
 
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
@@ -16,7 +16,6 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 export class AddQuestionComponent {
   questionIMG: any = '../../../../assets/icon/questionimg.jpg'
   questionFile: any
-  sections: Sections[] = []
   Classes: Class[] = []
   weeks: Week[] = []
   days: Day[] = []
@@ -48,7 +47,6 @@ export class AddQuestionComponent {
       class: ['', Validators.required],
       week: ['', Validators.required],
       day: ['', Validators.required],
-      sections: ['', Validators.required],
       topics: ['', Validators.required],
       sub_topics: ['', Validators.required],
       unit: ['', Validators.required],
@@ -76,7 +74,6 @@ export class AddQuestionComponent {
     this.getDayS()
     this.getTopics()
     this.getSubTopics()
-    this.getSection()
     this.getUnit()
 
     if (this.edit_data) {
@@ -164,15 +161,7 @@ export class AddQuestionComponent {
     )
   }
 
-  getSection() {
-    this._crud.getsections().subscribe(
-      (res) => {
-        if (Array.isArray(res.data)) {
-          this.sections = res.data
-        }
-      }
-    )
-  }
+
 
   getTopics() {
     this._crud.getTopics().subscribe(
@@ -233,7 +222,6 @@ export class AddQuestionComponent {
       formData.append('class', formValue.class || '');
       formData.append('week', formValue.week || '');
       formData.append('day', formValue.day || '');
-      formData.append('sections', formValue.sections || '');
       formData.append('topics', formValue.topics || '');
       formData.append('sub_topics', formValue.sub_topics || '');
       formData.append('unit', formValue.unit || '');
@@ -283,7 +271,6 @@ export class AddQuestionComponent {
       formData.append('class', formValue.class || '');
       formData.append('week', formValue.week || '');
       formData.append('day', formValue.day || '');
-      formData.append('sections', formValue.sections || '');
       formData.append('topics', formValue.topics || '');
       formData.append('sub_topics', formValue.sub_topics || '');
       formData.append('unit', formValue.unit || '');
@@ -323,7 +310,6 @@ export class AddQuestionComponent {
         class: this.QuestionForm.get('class')?.value,
         week: this.QuestionForm.get('week')?.value,
         day: this.QuestionForm.get('day')?.value,
-        sections: this.QuestionForm.get('sections')?.value,
         topics: this.QuestionForm.get('topics')?.value,
         sub_topics: this.QuestionForm.get('sub_topics')?.value,
         unit: this.QuestionForm.get('unit')?.value,
@@ -347,7 +333,6 @@ export class AddQuestionComponent {
       fromdata.append('class', this.QuestionForm.get('class')?.value)
       fromdata.append('week', this.QuestionForm.get('week')?.value)
       fromdata.append('day', this.QuestionForm.get('day')?.value)
-      fromdata.append('sections', this.QuestionForm.get('sections')?.value)
       fromdata.append('topics', this.QuestionForm.get('topics')?.value)
       fromdata.append('sub_topics', this.QuestionForm.get('sub_topics')?.value)
       fromdata.append('unit', this.QuestionForm.get('unit')?.value)
@@ -385,7 +370,6 @@ export class AddQuestionComponent {
       fromdata.append('class', this.QuestionForm.get('class')?.value)
       fromdata.append('week', this.QuestionForm.get('week')?.value)
       fromdata.append('day', this.QuestionForm.get('day')?.value)
-      fromdata.append('sections', this.QuestionForm.get('sections')?.value)
       fromdata.append('topics', this.QuestionForm.get('topics')?.value)
       fromdata.append('sub_topics', this.QuestionForm.get('sub_topics')?.value)
       fromdata.append('unit', this.QuestionForm.get('unit')?.value)
@@ -419,7 +403,6 @@ export class AddQuestionComponent {
       fromdata.append('class', this.QuestionForm.get('class')?.value)
       fromdata.append('week', this.QuestionForm.get('week')?.value)
       fromdata.append('day', this.QuestionForm.get('day')?.value)
-      fromdata.append('sections', this.QuestionForm.get('sections')?.value)
       fromdata.append('topics', this.QuestionForm.get('topics')?.value)
       fromdata.append('sub_topics', this.QuestionForm.get('sub_topics')?.value)
       fromdata.append('unit', this.QuestionForm.get('unit')?.value)
@@ -464,7 +447,6 @@ export class AddQuestionComponent {
       formData.append('class', formValue.class || '');
       formData.append('week', formValue.week || '');
       formData.append('day', formValue.day || '');
-      formData.append('sections', formValue.sections || '');
       formData.append('topics', formValue.topics || '');
       formData.append('sub_topics', formValue.sub_topics || '');
       formData.append('unit', formValue.unit || '');
@@ -512,7 +494,6 @@ export class AddQuestionComponent {
       formData.append('class', formValue.class || '');
       formData.append('week', formValue.week || '');
       formData.append('day', formValue.day || '');
-      formData.append('sections', formValue.sections || '');
       formData.append('topics', formValue.topics || '');
       formData.append('sub_topics', formValue.sub_topics || '');
       formData.append('unit', formValue.unit || '');
@@ -556,7 +537,6 @@ export class AddQuestionComponent {
         class: this.QuestionForm.get('class')?.value,
         week: this.QuestionForm.get('week')?.value,
         day: this.QuestionForm.get('day')?.value,
-        sections: this.QuestionForm.get('sections')?.value,
         topics: this.QuestionForm.get('topics')?.value,
         sub_topics: this.QuestionForm.get('sub_topics')?.value,
         unit: this.QuestionForm.get('unit')?.value,
@@ -581,7 +561,6 @@ export class AddQuestionComponent {
       fromdata.append('class', this.QuestionForm.get('class')?.value)
       fromdata.append('week', this.QuestionForm.get('week')?.value)
       fromdata.append('day', this.QuestionForm.get('day')?.value)
-      fromdata.append('sections', this.QuestionForm.get('sections')?.value)
       fromdata.append('topics', this.QuestionForm.get('topics')?.value)
       fromdata.append('sub_topics', this.QuestionForm.get('sub_topics')?.value)
       fromdata.append('unit', this.QuestionForm.get('unit')?.value)
@@ -624,7 +603,6 @@ export class AddQuestionComponent {
       fromdata.append('class', this.QuestionForm.get('class')?.value)
       fromdata.append('week', this.QuestionForm.get('week')?.value)
       fromdata.append('day', this.QuestionForm.get('day')?.value)
-      fromdata.append('sections', this.QuestionForm.get('sections')?.value)
       fromdata.append('topics', this.QuestionForm.get('topics')?.value)
       fromdata.append('sub_topics', this.QuestionForm.get('sub_topics')?.value)
       fromdata.append('unit', this.QuestionForm.get('unit')?.value)

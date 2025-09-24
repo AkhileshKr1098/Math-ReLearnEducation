@@ -21,11 +21,6 @@
   <option *ngFor="let item of days" [value]="item.day">{{ item.day }}</option>
 </select>
 
-<select class="form-select" [(ngModel)]="filters.sections" (ngModelChange)="getQuestions()">
-  <option value="">Select Sections</option>
-  <option *ngFor="let item of sections" [value]="item.sections_name">{{ item.sections_name }}</option>
-</select>
-
 <select class="form-select" [(ngModel)]="filters.topics" (ngModelChange)="getQuestions()">
   <option value="">Select Topics</option>
   <option *ngFor="let item of topics" [value]="item.topics">{{ item.topics }}</option>
