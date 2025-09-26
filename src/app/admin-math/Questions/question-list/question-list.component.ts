@@ -5,7 +5,7 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { MathCrudService } from 'src/app/math-crud.service';
 import { AddQuestionComponent } from '../add-question/add-question.component';
 import { ConfirmBoxComponentComponent } from '../../confirm-box-component/confirm-box-component.component';
-import { Class, ClassRes, Day, Sections, SubTopic, Topics, TopicsRes, Week } from 'src/app/interface/Question.interface';
+import { Class, ClassRes, Day, SubTopic, Topics, TopicsRes, Week } from 'src/app/interface/Question.interface';
 
 @Component({
   selector: 'app-question-list',
@@ -13,7 +13,6 @@ import { Class, ClassRes, Day, Sections, SubTopic, Topics, TopicsRes, Week } fro
   styleUrls: ['./question-list.component.scss']
 })
 export class QuestionListComponent implements AfterViewInit {
-  sections: Sections[] = [];
   Classes: Class[] = [];
   weeks: Week[] = [];
   days: Day[] = [];
@@ -29,7 +28,6 @@ export class QuestionListComponent implements AfterViewInit {
     class: '',
     week: '',
     day: '',
-    sections: '',
     topics: '',
     sub_topics: '',
     unit: '',
@@ -51,13 +49,12 @@ export class QuestionListComponent implements AfterViewInit {
     this.getDayS();
     this.getTopics();
     this.getSubTopics();
-    this.getSection();
     this.getUnit();
     this.getData();
   }
 
   ngAfterViewInit() {
-    this.loadPage(0, 10); // default first page
+    this.loadPage(0, 10); 
   }
 
   onPageChange(event: PageEvent) {
@@ -78,7 +75,7 @@ export class QuestionListComponent implements AfterViewInit {
     this._crud.getQuestions(this.filters).subscribe((res: any[]) => {
       this.FilterQuestion = Array.isArray(res) ? res : [];
       if (this.paginator) {
-        this.paginator.firstPage(); // reset paginator
+        this.paginator.firstPage(); 
       }
       this.loadPage(0, this.paginator?.pageSize || 10);
     });
@@ -136,11 +133,6 @@ export class QuestionListComponent implements AfterViewInit {
     });
   }
 
-  getSection() {
-    this._crud.getsections().subscribe((res) => {
-      if (Array.isArray(res.data)) this.sections = res.data;
-    });
-  }
 
   getTopics() {
     this._crud.getTopics().subscribe((res: TopicsRes) => {

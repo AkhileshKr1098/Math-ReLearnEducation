@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { CRUDService } from 'src/app/crud.service';
 import { AddQuestionComponent } from '../add-question/add-question.component';
 import { ConfirmBoxComponentComponent } from '../../confirm-box-component/confirm-box-component.component';
-import { Class, ClassRes, Day, QuestionData, Sections, SubTopic, Topics, TopicsRes, Week } from 'src/app/interface/Question.interface';
+import { Class, ClassRes, Day, QuestionData, SubTopic, Topics, TopicsRes, Week } from 'src/app/interface/Question.interface';
 
 @Component({
   selector: 'app-question-list',
@@ -11,7 +11,6 @@ import { Class, ClassRes, Day, QuestionData, Sections, SubTopic, Topics, TopicsR
   styleUrls: ['./question-list.component.scss']
 })
 export class QuestionListComponent {
-  sections: Sections[] = []
   Classes: Class[] = []
   weeks: Week[] = []
   days: Day[] = []
@@ -32,7 +31,6 @@ export class QuestionListComponent {
     this.getDayS()
     this.getTopics()
     this.getSubTopics()
-    this.getSection()
     this.getUnit()
     this.getData()
   }
@@ -68,15 +66,7 @@ export class QuestionListComponent {
     )
   }
 
-  getSection() {
-    this._crud.getsections().subscribe(
-      (res) => {
-        if (Array.isArray(res.data)) {
-          this.sections = res.data
-        }
-      }
-    )
-  }
+
 
   getTopics() {
     this._crud.getTopics().subscribe(
@@ -196,7 +186,6 @@ export class QuestionListComponent {
     class: '',
     week: '',
     day: '',
-    sections: '',
     topics: '',
     sub_topics: '',
     unit: '',
