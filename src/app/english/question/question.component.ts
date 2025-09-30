@@ -15,8 +15,7 @@ import { PaintCloneComponent } from 'src/app/maths/questions/paint-clone/paint-c
   styleUrls: ['./question.component.scss']
 })
 export class QuestionComponent implements OnInit, AfterViewInit {
-
-IsMaxMize: boolean = false
+ IsMaxMize: boolean = false
   isSaveVisible = false;
   QuestionType: string = '';
   SelectedTopics: string = '';
@@ -24,6 +23,8 @@ IsMaxMize: boolean = false
   CurrentQuestion: QuestionData = this.getEmptyQuestion();
   base_url: string = '';
   CurrentReport: CurrentReportRes = this.getEmptyReport();
+  
+
   userData: any = {};
   currentWeek: any = 0;
   currentDay: any = 0;
@@ -207,6 +208,7 @@ private getEmptyReport(): CurrentReportRes {
       this.paintComponent.resizeCanvas();
     }, 0);
   }
+
 
 
 

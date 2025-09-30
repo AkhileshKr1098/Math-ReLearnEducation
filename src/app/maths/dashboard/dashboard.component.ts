@@ -15,8 +15,8 @@ export class DashboardComponent {
 
   weeksList: Week[] = []
   TopicsList: Topics[] = []
-  SectionsList: SectionsFilter[] = []
-  SectionsListFilter: SectionsFilter[] = []
+  TopicsLists: any[] = []
+  TopicsListFilter: any[] = []
   allTopics: string = ''
   userData: any = {};
   currentWeek: any = 0;
@@ -52,7 +52,7 @@ export class DashboardComponent {
 
   ngOnInit() {
     this.getWeeks()
-    this.getSections()
+    this.get_topics_filter()
   }
 
   getStdData(id: string) {
@@ -97,15 +97,16 @@ export class DashboardComponent {
   }
 
 
-  getSections() {
+
+  get_topics_filter() {
     const cls = this.userData.Class
-    this._crud.getsectionsFilter(cls).subscribe(
-      (res: SectionsFilterRes) => {
+    this._crud.get_topics_filter(cls).subscribe(
+      (res: any) => {
         console.log(res, 'SectionsFilterRes');
 
         if (Array.isArray(res.data)) {
-          this.SectionsList = res.data
-          this.SectionsListFilter = res.data
+          this.TopicsLists = res.data
+          this.TopicsListFilter = res.data
         }
       }
     )
@@ -124,10 +125,12 @@ export class DashboardComponent {
   }
 
 
-  onGetSections(week: any) {
+  onGetTopics(week: any) {
     console.log(week);
-    this.SectionsList = this.SectionsListFilter.filter((item: any) => item.week == week)
-    console.log(this.SectionsList,'SectionsList');
+    console.log(this.TopicsListFilter);
+    
+    this.TopicsLists = this.TopicsListFilter.filter((item: any) => item.week == week)
+    console.log(this.TopicsLists, 'SectionsList');
   }
 
   getWeekStatus(weekNum: number): string {

@@ -15,12 +15,14 @@ export class DashboardComponent {
 
   weeksList: Week[] = []
   TopicsList: Topics[] = []
-  SectionsList: SectionsFilter[] = []
-  SectionsListFilter: SectionsFilter[] = []
+  TopicsLists: any[] = []
+  TopicsListFilter: any[] = []
   allTopics: string = ''
   userData: any = {};
   currentWeek: any = 0;
   currentDay: any = 0;
+  reLearnPoint: any = 0;
+
   days1 = [
     { name: '1', url: '../../../assets/icon/day1.png' },
     { name: '2', url: '../../../assets/icon/day2.png' },
@@ -43,6 +45,7 @@ export class DashboardComponent {
     private _router: Router
   ) {
     this.userData = JSON.parse(sessionStorage.getItem('rluser') || '{}');
+    this.getStdData(this.userData.ID)
     this.currentWeek = this.shared.currentWeek.getValue();
     this.currentDay = this.shared.currentDay.getValue();
   }
@@ -50,7 +53,7 @@ export class DashboardComponent {
 
   ngOnInit() {
     this.getWeeks()
-    this.getSections()
+    this.get_topics_filter()
   }
 
   getWeeks() {
@@ -87,20 +90,29 @@ export class DashboardComponent {
   }
 
 
-  getSections() {
-    const cls = this.userData.Class.trim()
-    this._crud.getsectionsFilter(cls).subscribe(
-      (res: SectionsFilterRes) => {
+  get_topics_filter() {
+    const cls = this.userData.Class
+    this._crud.get_topics_filter(cls).subscribe(
+      (res: any) => {
         console.log(res, 'SectionsFilterRes');
 
         if (Array.isArray(res.data)) {
-          this.SectionsList = res.data
-          this.SectionsListFilter = res.data
+          this.TopicsLists = res.data
+          this.TopicsListFilter = res.data
         }
       }
     )
 
     this.getTopics()
+  }
+
+  getStdData(id: string) {
+    this._crud.get_std_by_id(id).subscribe(
+      (res: any) => {
+        console.log(res.data);
+        this.reLearnPoint = res.data[0].eng_relearn_point
+      }
+    )
   }
 
   onTopics(day: any, event: MouseEvent) {
@@ -112,12 +124,12 @@ export class DashboardComponent {
   }
 
 
-  onGetSections(week: any) {
+  onGetTopics(week: any) {
     console.log(week);
-    console.log(this.SectionsListFilter);
+    console.log(this.TopicsListFilter);
 
-    this.SectionsList = this.SectionsListFilter.filter((item: any) => item.week == week)
-    console.log(this.SectionsList);
+    this.TopicsLists = this.TopicsListFilter.filter((item: any) => item.week == week)
+    console.log(this.TopicsLists, 'SectionsList');
   }
 
   getWeekAccess(weekNum: number): boolean {

@@ -6,7 +6,7 @@
     <div id="scrollarea">
       <mat-accordion *ngFor="let weeks of weeksList" class="example-headers-align">
         <mat-expansion-panel>
-          <mat-expansion-panel-header (click)="onGetSections(weeks.week_num)">
+          <mat-expansion-panel-header (click)="onGetTopics(weeks.week_num)">
             <mat-panel-title style="display: flex;justify-content: space-between;">
               <span> Week {{weeks.week_num}} <div class="topic_title" [ngClass]="getWeekClass(weeks.week_num)">
                   {{ getWeekStatus(weeks.week_num) }}
@@ -17,8 +17,8 @@
           <div class="topic_title">Available Topics</div>
           <hr>
           <mat-list role="list" class="custom-list">
-            <mat-list-item role="listitem" *ngFor="let sec of SectionsList">
-              {{ sec.sections }}
+            <mat-list-item role="listitem" *ngFor="let sec of TopicsLists">
+              {{ sec.topics }}
             </mat-list-item>
           </mat-list>
 
@@ -63,7 +63,7 @@
               <h1>ReLearn Points</h1>
 
             </div>
-            <div class="pointnumber">{{'0'}}</div>
+            <div class="pointnumber">{{reLearnPoint}}</div>
           </div>
         </div>
 

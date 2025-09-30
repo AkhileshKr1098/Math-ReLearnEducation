@@ -146,6 +146,9 @@ export class CRUDService {
   getTopics(): Observable<TopicsRes> {
     return this._http.get<TopicsRes>(`${this.base_url}topics.php`)
   }
+  get_topics_filter(cls: string): Observable<any> {
+    return this._http.get<any>(`${this.base_url}get_topics_filter.php?class=${cls}`)
+  }
 
   getTopicsByunit(unit: string): Observable<any> {
     return this._http.get<any>(`${this.base_url}topics.php?class_id=${unit}`);
@@ -328,6 +331,7 @@ export class CRUDService {
     }
     return this._http.get<AnswerWithQuestionRes>(`${this.base_url}get_ans_priview.php`, { params });
   }
+
 
 
 

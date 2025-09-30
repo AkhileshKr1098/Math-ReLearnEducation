@@ -149,6 +149,10 @@ export class MathCrudService {
     return this._http.get<TopicsRes>(`${this.base_url}topics.php`)
   }
 
+  get_topics_filter(cls:string): Observable<any> {
+    return this._http.get<any>(`${this.base_url}get_topics_filter.php?class=${cls}`)
+  }
+
   getTopicsByunit(unit: string): Observable<any> {
     return this._http.get<any>(`${this.base_url}topics.php?class_id=${unit}`);
   }
