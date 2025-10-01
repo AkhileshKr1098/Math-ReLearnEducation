@@ -35,6 +35,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { StudenListComponent } from './studen-list/studen-list.component';
 import { StudenAddFormComponent } from './studen-add-form/studen-add-form.component';
 import { ConfirmBoxComponentComponent } from './confirm-box-component/confirm-box-component.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatPaginatorModule } from '@angular/material/paginator';
 @NgModule({
   declarations: [
     AdminLoginComponent,
@@ -73,7 +75,8 @@ import { ConfirmBoxComponentComponent } from './confirm-box-component/confirm-bo
     MatIconModule,
     ReactiveFormsModule,
     FormsModule,
-
+    DragDropModule,
+    MatPaginatorModule
 
   ]
 })

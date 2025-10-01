@@ -333,6 +333,9 @@ export class CRUDService {
   }
 
 
+  updateQuestionOrder(data: any[]): Observable<any> {
+    return this._http.post<any>(`${this.base_url}updateQuestionOrder.php`, { data })
+  }
 
 
 

@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CRUDService } from 'src/app/crud.service';
 import { AddQuestionComponent } from '../add-question/add-question.component';
 import { ConfirmBoxComponentComponent } from '../../confirm-box-component/confirm-box-component.component';
 import { Class, ClassRes, Day, QuestionData, SubTopic, Topics, TopicsRes, Week } from 'src/app/interface/Question.interface';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-question-list',
@@ -20,6 +22,9 @@ export class QuestionListComponent {
   Question: any[] = []
   FilterQuestion: any[] = []
   deletevalue: any = 1
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  pagedQuestions: any[] = [];
   constructor(
     private dialog: MatDialog,
     private _crud: CRUDService
@@ -99,21 +104,6 @@ export class QuestionListComponent {
   }
 
   getData() {
-
-    // this._crud.getQuestion().subscribe(
-    //   (res: QuestionData) => {
-    //     if (Array.isArray(res)) {
-    //       this.Question = res
-    //       this.FilterQuestion = res
-    //       console.log(this.FilterQuestion)
-    //     }
-
-
-    //   }, (err: Error) => {
-    //     console.log(err);
-
-    //   }
-    // )
     this.getQuestions()
   }
 
@@ -195,9 +185,59 @@ export class QuestionListComponent {
 
 
   getQuestions() {
-    this._crud.getQuestions(this.filters).subscribe((res) => {
-      this.FilterQuestion = res;
+    this._crud.getQuestions(this.filters).subscribe((res: any[]) => {
+      this.FilterQuestion = Array.isArray(res) ? res : [];
+      if (this.paginator) {
+        this.paginator.firstPage(); 
+      }
+      this.loadPage(0, this.paginator?.pageSize || 10);
     });
+  }
+
+
+  drop(event: CdkDragDrop<any[]>) {
+    const prevIndex = event.previousIndex + this.paginator.pageIndex * this.paginator.pageSize;
+    const currIndex = event.currentIndex + this.paginator.pageIndex * this.paginator.pageSize;
+
+    moveItemInArray(this.FilterQuestion, prevIndex, currIndex);
+
+    // refresh current page view
+    this.loadPage(this.paginator.pageIndex, this.paginator.pageSize);
+
+
+
+  }
+
+  onPageChange(event: PageEvent) {
+    this.loadPage(event.pageIndex, event.pageSize);
+  }
+
+  loadPage(pageIndex: number, pageSize: number) {
+    const startIndex = pageIndex * pageSize;
+    const endIndex = startIndex + pageSize;
+    this.pagedQuestions = this.FilterQuestion.slice(startIndex, endIndex);
+  }
+
+  updateOrder() {
+    const payload = this.FilterQuestion.map((q, index) => ({
+      id: q.id,
+      order: index + 1
+    }));
+
+    this._crud.updateQuestionOrder(payload).subscribe(
+      (res: any) => {
+        if (res.success === 1) {
+          alert('Serial numbers updated successfully');
+          this.getQuestions();
+        } else {
+          alert('Failed to update serial numbers');
+        }
+      },
+      (err: any) => {
+        console.error(err);
+        alert('Error updating serial numbers');
+      }
+    );
   }
 
 }
